@@ -9,7 +9,7 @@ class Tipo_de_Documento extends Model
 {
     use HasFactory;
     
-    protected $guardered = [];
+    protected $guarded = [];
 
     public function documentos(){
         return $this -> hasMany('documentos');

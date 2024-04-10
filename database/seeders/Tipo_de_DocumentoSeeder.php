@@ -27,5 +27,7 @@ class Tipo_de_DocumentoSeeder extends Seeder
         Tipo_de_Documento::create([
             'tipo_documento' => 'Documentos Legales'
         ]);
+
+        //INSERT INTO `tipo_de__documentos` (`id`, `created_at`, `updated_at`, `tipo_documento`) VALUES (NULL, NULL, NULL, 'Procedimientos'), (NULL, NULL, NULL, 'Planes'), (NULL, NULL, NULL, 'Registros'), (NULL, NULL, NULL, 'Informes'), (NULL, NULL, NULL, 'Documentos Legales');
     }
 }
