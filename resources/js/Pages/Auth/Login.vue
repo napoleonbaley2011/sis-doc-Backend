@@ -30,61 +30,127 @@ const submit = () => {
 </script>
 
 <template>
-    <Head title="Log in" />
+    
+       
 
-    <AuthenticationCard>
-        <template #logo>
-            <AuthenticationCardLogo />
-        </template>
-
-        <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
-            {{ status }}
+        <div class="wrapper">
+            <form @submit.prevent="submit" class="form-box login">
+                <h1>INICIAR SESION</h1>
+    
+                <div class="input-box">
+                    <InputLabel for="email" value="Email" />
+                    <TextInput
+                        id="email"
+                        v-model="form.email"
+                        type="email"
+                        class="mt-1 block w-full"
+                        required
+                        autofocus
+                        autocomplete="username"
+                    />
+                    <InputError class="mt-2" :message="form.errors.email" />
+                </div>
+                <div class="input-box">
+                    <InputLabel for="password" value="Password" />
+                    <TextInput
+                        id="password"
+                        v-model="form.password"
+                        type="password"
+                        class="mt-1 block w-full"
+                        required
+                        autocomplete="current-password"
+                    />
+                    <InputError class="mt-2" :message="form.errors.password" />
+                </div>
+                <div class="remember-forgot">
+                    <label>
+                    <input type="checkbox" v-model="form.remember"> Recordar Usuario
+                    </label>
+                </div>
+                <button type="submit" class="btn">INGRESAR</button>
+    
+            </form>
         </div>
-
-        <form @submit.prevent="submit">
-            <div>
-                <InputLabel for="email" value="Email" />
-                <TextInput
-                    id="email"
-                    v-model="form.email"
-                    type="email"
-                    class="mt-1 block w-full"
-                    required
-                    autofocus
-                    autocomplete="username"
-                />
-                <InputError class="mt-2" :message="form.errors.email" />
-            </div>
-
-            <div class="mt-4">
-                <InputLabel for="password" value="Password" />
-                <TextInput
-                    id="password"
-                    v-model="form.password"
-                    type="password"
-                    class="mt-1 block w-full"
-                    required
-                    autocomplete="current-password"
-                />
-                <InputError class="mt-2" :message="form.errors.password" />
-            </div>
-
-            <div class="block mt-4">
-                <label class="flex items-center">
-                    <Checkbox v-model:checked="form.remember" name="remember" />
-                    <span class="ms-2 text-sm text-gray-600">Remember me</span>
-                </label>
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <Link v-if="canResetPassword" :href="route('password.request')" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                    Forgot your password?
-                </Link>
-
-                <PrimaryButton class="ms-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Log in
-                </PrimaryButton>
-            </div>
-        </form>
-    </AuthenticationCard>
+    
 </template>
+
+<style>
+.wrapper {
+    position: relative;
+    width:400px;
+    height:520px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 20px;
+    backdrop-filter:blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.wrapper h1 {
+    font-size: 2em;
+    color: #000;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #162938;
+    margin: 30px 0;
+}
+.input-box input:placeholder{
+    color: #000;
+}
+
+.input-box label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50px);
+    font-size: lem;
+    color:#162938;
+    font-weight: 500;
+    pointer-events: none;    
+}
+
+.input-box input{
+    width: 100%;
+    height:100%;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+.input-box i{
+    position: absolute;
+    right: 10px;
+    font-size: 1.5em;
+    color: #000;
+    line-height: 57px;
+}
+.remember-forgot{
+    font-size: .9em;
+    color: #000000;
+    font-weight: 500;
+    margin:   15px;
+    display: flex;
+}
+.btn {
+    width:  100%;
+    height: 45px;
+    background: #162938;
+    border:none;
+    outline: none;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:1.2em;
+    color: #fff;
+    font-weight:500;
+    margin-top: 20px;
+    
+}
+
+</style>
