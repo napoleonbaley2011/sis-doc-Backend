@@ -64,7 +64,7 @@ function handleImageError() {
                     </nav>
                 </header>
 
-                <h1>Hello word</h1>
+                {{$page.props}}
 
 
             </div>
