@@ -1,11 +1,7 @@
 <script setup>
 import { Head, Link, useForm } from '@inertiajs/vue3';
-import AuthenticationCard from '@/Components/AuthenticationCard.vue';
-import AuthenticationCardLogo from '@/Components/AuthenticationCardLogo.vue';
-import Checkbox from '@/Components/Checkbox.vue';
 import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 
 defineProps({
@@ -29,9 +25,8 @@ const submit = () => {
 };
 </script>
 
-<template>
-    
-       
+<template body>
+    <div class="body">
 
         <div class="wrapper">
             <form @submit.prevent="submit" class="form-box login">
@@ -68,13 +63,23 @@ const submit = () => {
                     </label>
                 </div>
                 <button type="submit" class="btn">INGRESAR</button>
-    
             </form>
         </div>
+    </div>
     
 </template>
 
 <style>
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: steelblue;
+    background: url(/resources/img/login.jpg) no-repeat;
+    background-size: cover;
+    
+}
 .wrapper {
     position: relative;
     width:400px;
