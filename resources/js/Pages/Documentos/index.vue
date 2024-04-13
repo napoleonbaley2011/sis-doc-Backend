@@ -10,27 +10,144 @@ import AppLayout from '@/Layouts/AppLayout.vue';
     <AppLayout>
         <template #header>
             <h1>Documentos</h1>
-        </template>
-        <div>
-            <ul role="list" class="divide-y divide-gray-100">
-                <li class="flex justify-between gap-x-6 py-5">
-                    <div class="flex min-w-0 gap-x-4">
-                        <img class="h-12 w-12 flex-none rounded-full bg-gray-50"
-                            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                            alt="">
-                        <div class="min-w-0 flex-auto">
-                            <p class="text-sm font-semibold leading-6 text-gray-900">Leslie Alexander</p>
-                            <p class="mt-1 truncate text-xs leading-5 text-gray-500">leslie.alexander@example.com</p>
-                        </div>
-                    </div>
-                    <div class="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
-                        <p class="text-sm leading-6 text-gray-900">Co-Founder / CEO</p>
-                        <p class="mt-1 text-xs leading-5 text-gray-500">Last seen <time datetime="2023-01-23T13:23Z">3h
-                                ago</time></p>
-                    </div>
-                </li>
-            </ul>
-        </div>
+            <div class="title-cards">
+                <h2>Servicios que Ofrecemos</h2>
+            </div>
+            <div class="container-card">
 
+                <div class="card">
+                    <figure>
+                        <img
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRZ9DMNFHxwZcfPXJrJeBMITxPMP3FMZk_ixXzTfzt4G_C-G058">
+                    </figure>
+                    <div class="contenido-card">
+                        <h3>Diseño Gràfico</h3>
+                        <p>Podemos crear la identidad corporativa de tu empresa. Diseño , Maquetación de folletos,
+                            Catálogos, Papelería y mucho más.</p>
+                        <a :href="route('etiquetas.index')">Leer Màs</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <figure>
+                        <img
+                            src="https://colmayorbolivar.edu.co/blog/wp-content/uploads/2017/06/imagen-administracion.jpg">
+                    </figure>
+                    <div class="contenido-card">
+                        <h3>Gestión de Redes</h3>
+                        <p>Nosotros creamos y optimizamos tus perfiles en las Redes Sociales. Importantes para que tu
+                            presencia online sea completa.</p>
+                        <a href="#">Leer Màs</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <figure>
+                        <img
+                            src="https://image.freepik.com/foto-gratis/desarrollo-programadores-desarrollo-tecnologias-diseno-codificacion-sitios-web_18497-1090.jpg">
+                    </figure>
+                    <div class="contenido-card">
+                        <h3>Desarrollo Web</h3>
+                        <p>Creamos tu página web utilizando las últimas tecnologías disponibles. Una Web adaptativa a tu
+                            móvil o Tablet y con un gestor de contenido fácil.</p>
+                        <a href="#">Leer Màs</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <figure>
+                        <img
+                            src="https://image.freepik.com/foto-gratis/desarrollo-programadores-desarrollo-tecnologias-diseno-codificacion-sitios-web_18497-1090.jpg">
+                    </figure>
+                    <div class="contenido-card">
+                        <h3>Desarrollo Web</h3>
+                        <p>Creamos tu página web utilizando las últimas tecnologías disponibles. Una Web adaptativa a tu
+                            móvil o Tablet y con un gestor de contenido fácil.</p>
+                        <a href="#">Leer Màs</a>
+                    </div>
+                </div>
+            </div>
+
+        </template>
     </AppLayout>
+    
 </template>
+
+<style>
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+/*Cards*/
+.container-card{
+	width: 100%;
+	display: flex;
+	max-width: 1100px;
+	margin: auto;
+}
+.title-cards{
+	width: 100%;
+	max-width: 1080px;
+	margin: auto;
+	padding: 20px;
+	margin-top: 20px;
+	text-align: center;
+	color: #7a7a7a;
+}
+.card{
+	width: 100%;
+	margin: 20px;
+	border-radius: 6px;
+	overflow: hidden;
+	background:#fff;
+	box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
+	transition: all 400ms ease-out;
+	cursor: default;
+}
+.card:hover{
+	box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
+	transform: translateY(-3%);
+}
+.card img{
+	width: 100%;
+	height: 210px;
+}
+.card .contenido-card{
+	padding: 15px;
+	text-align: center;
+}
+.card .contenido-card h3{
+	margin-bottom: 15px;
+	color: #7a7a7a;
+}
+.card .contenido-card p{
+	line-height: 1.8;
+	color: #6a6a6a;
+	font-size: 14px;
+	margin-bottom: 5px;
+}
+.card .contenido-card a{
+	display: inline-block;
+	padding: 10px;
+	margin-top: 10px;
+	text-decoration: none;
+	color: #2fb4cc;
+	border: 1px solid #2fb4cc;
+	border-radius: 4px;
+	transition: all 400ms ease;
+	margin-bottom: 5px;
+}
+.card .contenido-card a:hover{
+	background: #2fb4cc;
+	color: #fff;
+}
+@media only screen and (min-width:320px) and (max-width:768px){
+	.container-card{
+		flex-wrap: wrap;
+	}
+	.card{
+		margin: 15px;
+	}
+}
+
+</style>
