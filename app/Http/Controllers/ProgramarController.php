@@ -3,30 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Etiqueta;
-class EtiquetaController extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     */
-    public function index(Request $idCategoria)
-    {
-        
-        $num = $idCategoria['nombreBoton'];    
-        $etiqueta = Etiqueta::where('id_categoria', $idCategoria['nombreBoton'])->paginate(25);
-        return inertia('Documentos/categoriasList',['etiquetas' => $etiqueta]);
-        
-        /*return $idCategoria;*/
-        
-    }
 
+class ProgramarController extends Controller
+{
+    public function index()
+    {
+        return "Hola";
+    }
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        return inertia('Etiqueta/Create');
+        //
     }
 
     /**
@@ -50,7 +40,7 @@ class EtiquetaController extends Controller
      */
     public function edit(string $id)
     {
-        return $id;
+        //
     }
 
     /**
@@ -66,6 +56,11 @@ class EtiquetaController extends Controller
      */
     public function destroy(string $id)
     {
-        return "$id";
+        //
+    }
+
+    public function programar()
+    {
+        return "hola";
     }
 }

@@ -14,6 +14,12 @@ defineProps({
     }    
 })
 
+const deleteEtiqueta = id =>{
+    if(confirm('Estas Seguro ?')){
+        Inertia.delete(route('etiquetas.destroy', id));
+    }
+}
+
 </script>
 <template>
     <AppLayout>
@@ -32,11 +38,14 @@ defineProps({
                         <li class="flex justify-between gap-x-6 py-5" v-for="etiqueta in etiquetas.data">
                             <div class="flex min-w-0 gap-x-4">
                                 <div class="min-w-0 flex-auto">
-                                    <p class="text-md font-semibold leading-6 text-gray-900">{{etiqueta.nombre}}</p>
+                                    <p class="text-md font-semibold leading-6 text-gray-900"><Link :href="route('programar.index')">{{etiqueta.nombre}}</Link></p>
                                 </div>
                             </div>
                             <div class="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
-                                <p class="text-md leading-6 text-gray-900">Editar Eliminar</p>
+                                <p class="text-md leading-6 text-gray-900">
+                                    <Link :href="route('etiquetas.edit', etiqueta.id)">Editar</Link>
+                                    <Link @click="deleteEtiqueta(etiqueta.id)">Eliminar</Link>
+                                </p>
                             </div>
                         </li>
                     </ul>
