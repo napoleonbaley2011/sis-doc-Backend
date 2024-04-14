@@ -9,11 +9,14 @@ class EtiquetaController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $idCategoria)
     {
         
-        $etiqueta = Etiqueta::paginate(25);
-        return inertia('Documentos/hacer',['etiquetas' => $etiqueta]);
+        $num = $idCategoria['nombreBoton'];    
+        $etiqueta = Etiqueta::where('id_categoria', $idCategoria['nombreBoton'])->paginate(25);
+        return inertia('Documentos/categoriasList',['etiquetas' => $etiqueta]);
+        
+        /*return $idCategoria;*/
         
     }
 

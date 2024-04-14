@@ -11,32 +11,26 @@ import AppLayout from '@/Layouts/AppLayout.vue';
         <template #header>
             <h1>Documentos</h1>
             <div class="title-cards">
-                <h2>Servicios que Ofrecemos</h2>
+                <h2>Categorias de Documentos</h2>
             </div>
             <div class="container-card">
 
                 <div class="card">
                     <figure>
-                        <img
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRZ9DMNFHxwZcfPXJrJeBMITxPMP3FMZk_ixXzTfzt4G_C-G058">
+                        <img src="https://image.freepik.com/foto-gratis/desarrollo-programadores-desarrollo-tecnologias-diseno-codificacion-sitios-web_18497-1090.jpg">
                     </figure>
                     <div class="contenido-card">
-                        <h3>Diseño Gràfico</h3>
-                        <p>Podemos crear la identidad corporativa de tu empresa. Diseño , Maquetación de folletos,
-                            Catálogos, Papelería y mucho más.</p>
-                        <a :href="route('etiquetas.index')">Leer Màs</a>
+                        <h3>Planear</h3>
+                        <a :href="route('etiquetas.index', {nombreBoton: '1'})">Programar Documento</a>
                     </div>
                 </div>
                 <div class="card">
                     <figure>
-                        <img
-                            src="https://colmayorbolivar.edu.co/blog/wp-content/uploads/2017/06/imagen-administracion.jpg">
+                        <img src="https://image.freepik.com/foto-gratis/desarrollo-programadores-desarrollo-tecnologias-diseno-codificacion-sitios-web_18497-1090.jpg">
                     </figure>
                     <div class="contenido-card">
-                        <h3>Gestión de Redes</h3>
-                        <p>Nosotros creamos y optimizamos tus perfiles en las Redes Sociales. Importantes para que tu
-                            presencia online sea completa.</p>
-                        <a href="#">Leer Màs</a>
+                        <h3>Hacer</h3>
+                        <a :href="route('etiquetas.index', {nombreBoton: '2'})">Programar Documento</a>
                     </div>
                 </div>
                 <div class="card">
@@ -45,10 +39,8 @@ import AppLayout from '@/Layouts/AppLayout.vue';
                             src="https://image.freepik.com/foto-gratis/desarrollo-programadores-desarrollo-tecnologias-diseno-codificacion-sitios-web_18497-1090.jpg">
                     </figure>
                     <div class="contenido-card">
-                        <h3>Desarrollo Web</h3>
-                        <p>Creamos tu página web utilizando las últimas tecnologías disponibles. Una Web adaptativa a tu
-                            móvil o Tablet y con un gestor de contenido fácil.</p>
-                        <a href="#">Leer Màs</a>
+                        <h3>Verificar</h3>
+                        <a :href="route('etiquetas.index', {nombreBoton: '3'})">Programar Documento</a>
                     </div>
                 </div>
                 <div class="card">
@@ -57,10 +49,8 @@ import AppLayout from '@/Layouts/AppLayout.vue';
                             src="https://image.freepik.com/foto-gratis/desarrollo-programadores-desarrollo-tecnologias-diseno-codificacion-sitios-web_18497-1090.jpg">
                     </figure>
                     <div class="contenido-card">
-                        <h3>Desarrollo Web</h3>
-                        <p>Creamos tu página web utilizando las últimas tecnologías disponibles. Una Web adaptativa a tu
-                            móvil o Tablet y con un gestor de contenido fácil.</p>
-                        <a href="#">Leer Màs</a>
+                        <h3>Actuar</h3>
+                        <a :href="route('etiquetas.index', {nombreBoton: '4'})">Programar Documento</a>
                     </div>
                 </div>
             </div>
