@@ -14,6 +14,8 @@ defineProps({
     }    
 })
 
+
+
 const deleteEtiqueta = id =>{
     if(confirm('Estas Seguro ?')){
         Inertia.delete(route('etiquetas.destroy', id));

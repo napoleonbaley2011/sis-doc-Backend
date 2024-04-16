@@ -7,7 +7,6 @@
 import AppLayout from '@/Layouts/AppLayout.vue';
 import { useForm } from "@inertiajs/vue3";
 import EtiquetaForm from '@/Components/Etiquetas/Form.vue';
-
 const form = useForm({
     name: ''
 })
@@ -24,7 +23,7 @@ const form = useForm({
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                         <div class="p-6 bg-white border-b border-gray-200">
-                            <EtiquetaForm :form="form"@submit="form.post(route('etiquetas.store'))"/>
+                            <EtiquetaForm :form="form" @submit="form.post(route('etiquetas.store'))"/>
                         </div>
                     </div>
                 </div>

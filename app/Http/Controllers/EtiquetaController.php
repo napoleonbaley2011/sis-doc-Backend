@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Etiqueta;
+use App\Http\Requests\EtiquetaRequest;
 class EtiquetaController extends Controller
 {
     /**
@@ -26,15 +27,30 @@ class EtiquetaController extends Controller
      */
     public function create()
     {
-        return inertia('Etiqueta/Create');
+        return inertia('Documentos/create');
+        /*return "Loq";*/   
     }
 
     /**
      * Store a newly created resource in storage.
+     * @param App\Http\Requests\EtiquetaRequest
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'categoria' => 'required|integer|between:1,4',
+        ]);
+        Log::info('Datos recibidos del formulario:', $validatedData);
+
+        return $validatedData;
+        /*
+        $etiqueta = new Etiqueta();
+        $etiqueta->nombre = $validatedData['name'];
+        $etiqueta->id_categoria = $validatedData['categoria'];
+        $etiqueta->save();
+        */
+        
     }
 
     /**
