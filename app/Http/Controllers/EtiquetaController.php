@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Etiqueta;
 use App\Http\Requests\EtiquetaRequest;
+use App\Models\Documento;
+use Illuminate\Support\Facades\Log;
+
 class EtiquetaController extends Controller
 {
     /**
@@ -37,19 +40,20 @@ class EtiquetaController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            'categoria' => 'required|integer|between:1,4',
-        ]);
-        Log::info('Datos recibidos del formulario:', $validatedData);
+       //return $request;
 
-        return $validatedData;
-        /*
+       $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'categoria' => 'required|integer',
+        ]);
+        
+        //return $validatedData;
+    
         $etiqueta = new Etiqueta();
         $etiqueta->nombre = $validatedData['name'];
         $etiqueta->id_categoria = $validatedData['categoria'];
         $etiqueta->save();
-        */
+        return redirect()->route('documentos.index');
         
     }
 

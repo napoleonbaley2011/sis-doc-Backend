@@ -8,7 +8,7 @@ import AppLayout from '@/Layouts/AppLayout.vue';
 import { useForm } from "@inertiajs/vue3";
 import EtiquetaForm from '@/Components/Etiquetas/Form.vue';
 const form = useForm({
-    name: ''
+    name: '',categoria:''
 })
 
 </script>

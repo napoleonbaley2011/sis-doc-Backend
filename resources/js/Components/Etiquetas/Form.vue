@@ -49,9 +49,8 @@ defineEmits(['submit'])
                     <option value="3">Verificar</option>
                     <option value="4">Actuar</option>
                 </select>
-                <InputError :message="$page.props.errors.name" class="mt-2" />
+                <InputError :message="$page.props.errors.categoria" class="mt-2" />
             </div>
-
         </template>
         <template #actions>
             <PrimaryButton>
