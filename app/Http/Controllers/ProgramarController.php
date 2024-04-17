@@ -1,22 +1,24 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Documento;
 use Illuminate\Http\Request;
 
 class ProgramarController extends Controller
 {
     public function index()
     {
-        return "Hola";
+        return "loquitos";
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        
+        $num = $request->input('id'); // Obtener la ID de la solicitud
+        return inertia('Documentos/programar', ['num' => $num]);
     }
 
     /**
@@ -24,7 +26,7 @@ class ProgramarController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request;
     }
 
     /**
@@ -40,7 +42,7 @@ class ProgramarController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return "loquitas";
     }
 
     /**
