@@ -23,7 +23,9 @@ const form = useForm({
         <p>ID recibida: {{ num }}</p>
         <div class="body">
             <div class="container">
-                <h1>Programación de Documentos</h1>
+                <div class="letras">
+                    <h1>Programación de Documentos</h1>
+                </div>
                 <form action="#" method="POST" class="form">
                     <div class="input-group">
                         <label for="fechaSubida">Fecha de Subida:</label>
@@ -67,7 +69,11 @@ const form = useForm({
   height: 100vh;
   background-color: #f0f0f0;
 }
-
+.letras{
+    text-align: center;
+    font-size: x-large;
+    padding: 5%;
+}
 .container {
   width: 100%;
   max-width: 800px; /* Limita el ancho del formulario */
@@ -77,10 +83,6 @@ const form = useForm({
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Agrega sombra al contenedor */
 }
 
-h1 {
-  text-align: center;
-  margin-bottom: 20px;
-}
 
 .form {
   display: grid;
