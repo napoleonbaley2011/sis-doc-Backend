@@ -40,7 +40,7 @@ const form = useForm({
                         <textarea id="comentarios" name="comentarios"></textarea>
                     </div>
                     <div class="input-group">
-                        <label for="calificacion">Calificación:</label>
+                        <label for="calificacion">Tipo de documento:</label>
                         <select id="calificacion" name="calificacion" required>
                             <option value="1">Planear</option>
                             <option value="2">2</option>
