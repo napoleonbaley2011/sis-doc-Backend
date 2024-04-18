@@ -8,7 +8,7 @@ class ProgramarController extends Controller
 {
     public function index()
     {
-        return "loquitos";
+        return "loquitos for ever";
     }
 
     /**
@@ -26,7 +26,27 @@ class ProgramarController extends Controller
      */
     public function store(Request $request)
     {
-        return $request;
+        //return $request;
+        $validateData = $request->validate([
+            'fechaSubida'=>'required',
+            'fechaEntrega'=> 'required',
+            'comentarios'=> 'required',
+            'tipodoc'=> 'required',
+            'nombre'=> 'required',
+            'categoria'=> 'required',
+            'id_user'=> 'required'
+        ]);
+        $documento = new Documento();
+        $documento->estado_doc = 1;
+        $documento->fecha_creacion = $validateData['fechaSubida'];
+        $documento->fecha_modificacion = $validateData['fechaEntrega'];
+        $documento->id_users = $validateData['id_user'];
+        $documento->id_tipo = $validateData['tipodoc'];
+        $documento->id_categoria = $validateData['categoria'];
+        $documento->titulo_documento = $validateData['comentarios'];
+        $documento->save();
+        return redirect()->route('documentos.index');
+
     }
 
     /**

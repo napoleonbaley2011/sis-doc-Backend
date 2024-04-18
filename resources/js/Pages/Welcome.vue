@@ -25,95 +25,131 @@ function handleImageError() {
     document.getElementById('background')?.classList.add('!hidden');
 }
 </script>
-
 <template>
+
     <Head title="Welcome" />
-    <div class="bg-gray-50 text-black/50 dark:bg-slate-900 dark:text-white/50">
-        <div class="relative w-full max-w-2xl px-5 lg:max-w-7xl">
-            <header class="grid items-center gap-2 py-5 ">
-                <nav v-if="canLogin" class="-mx-3 flex flex-1 justify-end">
-                    <Link v-if="$page.props.auth.user" :href="route('dashboard')"
-                        class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
-                    Dashboard
-                    </Link>
-                    <template v-else>
-                        <Link :href="route('login')"
-                            class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
+    <div class="body1">
+        <div class="header">
+            <nav class="navbar">
+                <div class="logo">
+                    <a href="#">SIS - DOC</a>
+                </div>
+                <ul class="nav-links">
+                    <Link :href="route('login')" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
                         Log in
-                        </Link>
-                    </template>
-                </nav>
-            </header>
+                    </Link>
+                </ul>
+            </nav>
         </div>
-    </div>
-    <div class="inicio">
-        <div class="contenido-banner">
-            <div class="contenedor-img">
-                <img src="../../img/logo.jpg" alt="">
-            </div>
-            <h1>Ingeniria de Trasportes RL.ltda</h1>
-            <h2>Ingeniero de Software - Experto UI/UX</h2>
-            <div class="redes">
-                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                <a href="#"><i class="fa-brands fa-skype"></i></a>
-                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                <a href="#"><i class="fa-solid fa-rss"></i></a>
-            </div>
-        </div>
+        <main class="hero-container">
+            <section class="hero">
+                <div class="hero-content">
+                    <h1>Bienvenido a mi Portafolio</h1>
+                    <p>Descubre mis proyectos y conoce más sobre mí.</p>
+                    <a href="#" class="btn">Ver Proyectos</a>
+                </div>
+            </section>
+        </main>
     </div>
 </template>
 <style>
-.inicio{
-    background: linear-gradient(to top, rgba(30,35,38,.8), rgba(30,35,38,1)),
-    url(../../img/login.jpg);
+.body1 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-image: url("../../img/login.jpg");
     background-size: cover;
-    height: 100vh;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    font-family:'Work Sans';
-}
-.inicio .contenido-banner{
-    padding: 15px;
-    background-color: #1e2326;
-    max-width: 350px;
-    margin: auto;
-    text-align: center;
-    border-radius: 40px;
-}
-.inicio .contenido-banner img{
-    margin-top: 40px;
-    border: 10px solid #1CB698;
-    display: block;
-    width: 80%;
-    margin: auto;
-    border-radius: 100%;
-}
-.inicio .contenido-banner h1{
-    margin-top: 40px;
-    font-size: 42px;
-    font-family: 'Righteous';
-}
-.inicio .contenido-banner h2{
-    font-size: 15px;
-    font-weight: normal;
-}
-.inicio .contenido-banner .redes a{
-    color: #fff;
-    display: inline-block;
-    text-decoration: none;
-    border: 1px solid #fff;
-    border-radius: 100%;
-    width: 42px;
-    height: 42px;
-    line-height: 42px;
-    margin: 40px 5px;
-    font-size: 20px;
-    transition: .3s;
-}
-.inicio .contenido-banner .redes a:hover{
-    background-color: #1CB698;
+    background-position: center;
+    background-attachment: fixed;
 }
 
+.header {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo a {
+    color: #fff;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style-type: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-right: 20px;
+}
+
+.nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #ffd700;
+    /* Color dorado para el hover */
+}
+
+.hero-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.hero {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 50px;
+    text-align: center;
+    border-radius: 10px;
+    max-width: 800px;
+    width: 100%;
+}
+
+.hero-content {
+    color: #fff;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #ffd700;
+    color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #ffc100;
+}
 </style>
