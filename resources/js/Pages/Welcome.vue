@@ -44,8 +44,8 @@ function handleImageError() {
         <main class="hero-container">
             <section class="hero">
                 <div class="hero-content">
-                    <h1>Bienvenido a mi Portafolio</h1>
-                    <p>Descubre mis proyectos y conoce más sobre mí.</p>
+                    <h1>Bienvenido a SIS-DOC</h1>
+                    <p>Gestor manejo de documentos</p>
                     <a href="#" class="btn">Ver Proyectos</a>
                 </div>
             </section>

@@ -26,8 +26,19 @@ const submit = () => {
 </script>
 
 <template body>
+    <div class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="#">SIS - DOC</a>
+            </div>
+            <ul class="nav-links">
+                <Link :href="route('login')" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
+                    Log in
+                </Link>
+            </ul>
+        </nav>
+    </div>
     <div class="body">
-
         <div class="wrapper">
             <form @submit.prevent="submit" class="form-box login">
                 <h1>INICIAR SESION</h1>
@@ -78,8 +89,53 @@ const submit = () => {
     background-color: steelblue;
     background: url(/resources/img/login.jpg) no-repeat;
     background-size: cover;
-    
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+.header {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo a {
+    color: #fff;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style-type: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-right: 20px;
+}
+
+.nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #ffd700;
+    /* Color dorado para el hover */
+}
+
 .wrapper {
     position: relative;
     width:400px;
