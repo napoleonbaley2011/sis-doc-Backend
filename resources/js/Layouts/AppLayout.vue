@@ -29,8 +29,9 @@ const logout = () => {
 
 <template>
     <div>
+
         <Head :title="title" />
-        <div class="min-h-screen bg-gray-300">
+        <div class="min-h-screen bg-gray-200">
             <nav class="bg-slate-300 border-b border-gray-100">
                 <!-- Primary Navigation Menu -->
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -38,7 +39,7 @@ const logout = () => {
                         <div class="flex">
                             <!-- Logo -->
                             <!-- Navigation Links -->
-                            <div class="hidden space-x-10 sm:-my-px sm:ms-20 sm:flex">
+                            <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                                 <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
                                     Inicio
                                 </NavLink>
@@ -120,7 +121,7 @@ const logout = () => {
                                         </div>
 
                                         <DropdownLink :href="route('profile.show')">
-                                            Profile
+                                            Perfil
                                         </DropdownLink>
 
                                         <DropdownLink v-if="$page.props.jetstream.hasApiFeatures"
@@ -133,7 +134,7 @@ const logout = () => {
                                         <!-- Authentication -->
                                         <form @submit.prevent="logout">
                                             <DropdownLink as="button">
-                                                Log Out
+                                                Cerrar Cesion
                                             </DropdownLink>
                                         </form>
                                     </template>
@@ -187,7 +188,7 @@ const logout = () => {
 
                         <div class="mt-3 space-y-1">
                             <ResponsiveNavLink :href="route('profile.show')" :active="route().current('profile.show')">
-                                Profile
+                                Perfil
                             </ResponsiveNavLink>
 
                             <ResponsiveNavLink v-if="$page.props.jetstream.hasApiFeatures"
@@ -240,6 +241,4 @@ const logout = () => {
         </div>
     </div>
 </template>
-<style>
-
-</style>
+<style></style>

@@ -45,16 +45,16 @@ const closeModal = () => {
 <template>
     <ActionSection>
         <template #title>
-            Browser Sessions
+            Sesiones de navegador
         </template>
 
         <template #description>
-            Manage and log out your active sessions on other browsers and devices.
+            Administre y cierre sesión en sus sesiones activas en otros navegadores y dispositivos.
         </template>
 
         <template #content>
             <div class="max-w-xl text-sm text-gray-600">
-                If necessary, you may log out of all of your other browser sessions across all of your devices. Some of your recent sessions are listed below; however, this list may not be exhaustive. If you feel your account has been compromised, you should also update your password.
+                Si es necesario, puede cerrar sesión en todas las demás sesiones de su navegador en todos sus dispositivos. Algunas de sus sesiones recientes se enumeran a continuación; sin embargo, esta lista puede no ser exhaustiva. Si cree que su cuenta ha sido comprometida, también debe actualizar su contraseña.
             </div>
 
             <!-- Other Browser Sessions -->

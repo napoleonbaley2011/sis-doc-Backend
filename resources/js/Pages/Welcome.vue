@@ -53,7 +53,7 @@ function handleImageError() {
     </div>
 </template>
 <style>
-.body1 {
+body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;

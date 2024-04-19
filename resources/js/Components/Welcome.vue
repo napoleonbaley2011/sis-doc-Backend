@@ -4,7 +4,7 @@ import Panel from '@/Components/panel.vue';
 import { Link } from "@inertiajs/vue3";
 </script>
 <template>
-<Panel/>
+<h1></h1>
 </template>
 <style>
 
