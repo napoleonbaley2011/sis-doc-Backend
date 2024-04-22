@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Documento;
 use Inertia\Response;
+use Carbon\Carbon;
 class DocumentoController extends Controller
 {
     /**

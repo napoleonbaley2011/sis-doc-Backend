@@ -19,4 +19,7 @@ class DashboardController extends Controller
     public function dashboard(){
         return Inertia::render('Dashboard');
     }
+    public function dashboardEditor(){
+        return Inertia::render('DashboradEditor');
+    }
 }

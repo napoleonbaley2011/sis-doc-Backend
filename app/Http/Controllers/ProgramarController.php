@@ -1,14 +1,45 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Documento;
-use Illuminate\Http\Request;
 
+use App\Models\Categoria;
+use App\Models\Documento;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 class ProgramarController extends Controller
 {
     public function index()
     {
-        return "loquitos for ever";
+        $fechaActual = Carbon::now();
+        $documentos = DB::select("
+        SELECT xd.id, xc.nombre_categoria, xd.fecha_creacion, xd.fecha_modificacion, xd.estado_doc, xt.tipo_documento
+        FROM documentos xd, categorias xc, tipo_de__documentos xt
+        WHERE xd.id_categoria = xc.id
+        AND xd.id_tipo = xt.id;
+        ");
+
+        foreach ($documentos as $documento) {
+            if ($documento->fecha_modificacion < $fechaActual->toDateString()) {
+                $documento->estado_doc = 0;
+            }
+        }
+        $documentosEstado0 = collect($documentos)->where('estado_doc', 0);
+        $hayDocumentosEstado0 = $documentosEstado0->isNotEmpty();
+        /**
+         dump($hayDocumentosEstado0);
+        //
+        //return $documento;
+        return inertia('Programar/programar', ['documentos' => $documento]);
+        $etiqueta = Etiqueta::where('id_categoria', $idCategoria['nombreBoton'])->paginate(25);
+        return inertia('Documentos/categoriasList',['etiquetas' => $etiqueta]);
+        return inertia('Programar/programar', ['documentos' => $documento]);
+         */
+        return inertia('Programar/programar',[
+            'documentos' => $documentos,
+            'hayDocumentosEstado0' => $hayDocumentosEstado0,
+        ]);
     }
 
     /**

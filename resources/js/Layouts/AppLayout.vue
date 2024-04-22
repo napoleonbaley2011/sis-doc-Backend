@@ -29,7 +29,6 @@ const logout = () => {
 
 <template>
     <div>
-
         <Head :title="title" />
         <div class="min-h-screen bg-gray-200">
             <nav class="bg-slate-300 border-b border-gray-100">
@@ -39,7 +38,7 @@ const logout = () => {
                         <div class="flex">
                             <!-- Logo -->
                             <!-- Navigation Links -->
-                            <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                            <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex" >
                                 <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
                                     Inicio
                                 </NavLink>
@@ -167,6 +166,7 @@ const logout = () => {
                             Roles
                         </ResponsiveNavLink>
                     </div>
+                    
 
                     <!-- Responsive Settings Options -->
                     <div class="pt-4 pb-1 border-t border-gray-200">

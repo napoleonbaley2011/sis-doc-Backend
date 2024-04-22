@@ -14,6 +14,7 @@ Route::get('/',[DashboardController::class, 'index']);
 
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])->group(function () {
     //Auth Routes
+    Route::get('/dashboardeditor', [DashboardController::class, 'dashboardeditor'])->name('dashboardeditor');
     Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
     Route::resource('/documentos', DocumentoController::class);
     Route::resource('/roles', RoleController::class);

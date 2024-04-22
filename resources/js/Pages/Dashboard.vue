@@ -1,138 +1,229 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
+import { defineProps } from 'vue';
+import TablaDocumento from '@/Pages/Programar/programar.vue'
 import Welcome from '@/Components/Welcome.vue';
-</script>
+defineProps({
+    documentos: {
+        type: Array,
+        required: true,
 
+    }
+})
+</script>
 <template>
     <AppLayout title="Dashboard">
         <template #header>
-            <div class="container">
-                <div class="main-v">
-                    <div class="main-top">
-                        <h1 class="h1-v">Dashboard</h1>
-                        <i class="fas fa-user-cog"></i>
-                    </div>
-                    <div class="users">
-                        <div class="card-v">
-                            <img src="../../img/documento.png" class="img-v">
-                            <h4 class="h4">PLANEAR</h4>
-                            <p class="p">Porcentaje de Avance</p>
-                            <div class="per">
-                                <table class="table">
-                                    <tr>
-                                        <td class="td"><span class="span">85%</span></td>
-                                        <td class="td"><span class="span">87%</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="td">Revisados</td>
-                                        <td class="td">Por Revisar</td>
-                                    </tr>
-                                </table>
-                            </div>
+            <div v-if="$page.props.user.permission.includes('create roles')">
+                <div class="container">
+                    <div class="main-v">
+                        <div class="main-top">
+                            <h1 class="h1-v">Dashboard</h1>
+                            <i class="fas fa-user-cog"></i>
                         </div>
-                        <div class="card-v">
-                            <img src="../../img/documento.png" class="img-v">
-                            <h4 class="h4">HACER</h4>
-                            <p class="p">Porcentaje de Avance</p>
-                            <div class="per">
-                                <table class="table">
-                                    <tr>
-                                        <td class="td"><span class="span">85%</span></td>
-                                        <td class="td"><span class="span">87%</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="td">Revisados</td>
-                                        <td class="td">Por Revisar</td>
-                                    </tr>
-                                </table>
+                        <div class="users">
+                            <div class="card-v">
+                                <img src="../../img/documento.png" class="img-v">
+                                <h4 class="h4">PLANEAR</h4>
+                                <p class="p">Porcentaje de Avance</p>
+                                <div class="per">
+                                    <table class="table">
+                                        <tr>
+                                            <td class="td"><span class="span">85%</span></td>
+                                            <td class="td"><span class="span">87%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="td">Revisados</td>
+                                            <td class="td">Por Revisar</td>
+                                        </tr>
+                                    </table>
+                                </div>
                             </div>
-                        </div>
-                        <div class="card-v">
-                            <img src="../../img/documento.png" class="img-v">
-                            <h4 class="h4">VERIFICAR</h4>
-                            <p class="p">Porcentaje de Avance</p>
-                            <div class="per">
-                                <table class="table">
-                                    <tr>
-                                        <td class="td"><span class="span">85%</span></td>
-                                        <td class="td"><span class="span">87%</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="td">Revisados</td>
-                                        <td class="td">Por Revisar</td>
-                                    </tr>
-                                </table>
+                            <div class="card-v">
+                                <img src="../../img/documento.png" class="img-v">
+                                <h4 class="h4">HACER</h4>
+                                <p class="p">Porcentaje de Avance</p>
+                                <div class="per">
+                                    <table class="table">
+                                        <tr>
+                                            <td class="td"><span class="span">85%</span></td>
+                                            <td class="td"><span class="span">87%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="td">Revisados</td>
+                                            <td class="td">Por Revisar</td>
+                                        </tr>
+                                    </table>
+                                </div>
                             </div>
-                        </div>
-                        <div class="card-v">
-                            <img src="../../img/documento.png" class="img-v">
-                            <h4 class="h4">ACTUAR</h4>
-                            <p class="p">Porcentaje de Avance</p>
-                            <div class="per">
-                                <table class="table">
-                                    <tr>
-                                        <td class="td"><span class="span">85%</span></td>
-                                        <td class="td"><span class="span">87%</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="td">Revisados</td>
-                                        <td class="td">Por Revisar</td>
-                                    </tr>
-                                </table>
+                            <div class="card-v">
+                                <img src="../../img/documento.png" class="img-v">
+                                <h4 class="h4">VERIFICAR</h4>
+                                <p class="p">Porcentaje de Avance</p>
+                                <div class="per">
+                                    <table class="table">
+                                        <tr>
+                                            <td class="td"><span class="span">85%</span></td>
+                                            <td class="td"><span class="span">87%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="td">Revisados</td>
+                                            <td class="td">Por Revisar</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="card-v">
+                                <img src="../../img/documento.png" class="img-v">
+                                <h4 class="h4">ACTUAR</h4>
+                                <p class="p">Porcentaje de Avance</p>
+                                <div class="per">
+                                    <table class="table">
+                                        <tr>
+                                            <td class="td"><span class="span">85%</span></td>
+                                            <td class="td"><span class="span">87%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="td">Revisados</td>
+                                            <td class="td">Por Revisar</td>
+                                        </tr>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="container4">
+                    <a :href="route('programar.index')" class="button-link4">Lista de Documentos</a>
+                </div>  
             </div>
 
-            <div class="attendance">
-                <div class="attendance-list">
-                    <h1>Lista Pendientes</h1>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Categoria</th>
-                                <th>Fecha Programada</th>
-                                <th>Fecha Vencimiento</th>
-                                <th>Estado del Repositorio</th>
-                                <th>Tipo de Documento</th>
-                                <th>Accion</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>01</td>
-                                <td>Hacer</td>
-                                <td>2024/04/17</td>
-                                <td>2024/04/18</td>
-                                <td>Activo</td>
-                                <td>Procedimientos</td>
-                                <td><button>View</button></td>
-                            </tr>
-                            <tr>
-                                <td>01</td>
-                                <td>Hacer</td>
-                                <td>2024/04/17</td>
-                                <td>2024/04/18</td>
-                                <td>Activo</td>
-                                <td>Procedimientos</td>
-                                <td><button>View</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
+            <div v-if="$page.props.user.roles.includes('transcriptor')">
+                {{ $page.props.user.roles }}
+                <div class="container">
+                    <div class="main-v">
+                        <div class="main-top">
+                            <h1 class="h1-v">Dashboard</h1>
+                            <i class="fas fa-user-cog"></i>
+                        </div>
+                        <div class="users">
+                            <div class="card-v">
+                                <img src="../../img/documento.png" class="img-v">
+                                <h4 class="h4">PLANEAR</h4>
+                                <p class="p">Porcentaje de Avance</p>
+                                <div class="per">
+                                    <table class="table">
+                                        <tr>
+                                            <td class="td"><span class="span">85%</span></td>
+                                            <td class="td"><span class="span">87%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="td">Revisados</td>
+                                            <td class="td">Por Revisar</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="card-v">
+                                <img src="../../img/documento.png" class="img-v">
+                                <h4 class="h4">HACER</h4>
+                                <p class="p">Porcentaje de Avance</p>
+                                <div class="per">
+                                    <table class="table">
+                                        <tr>
+                                            <td class="td"><span class="span">85%</span></td>
+                                            <td class="td"><span class="span">87%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="td">Revisados</td>
+                                            <td class="td">Por Revisar</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="card-v">
+                                <img src="../../img/documento.png" class="img-v">
+                                <h4 class="h4">VERIFICAR</h4>
+                                <p class="p">Porcentaje de Avance</p>
+                                <div class="per">
+                                    <table class="table">
+                                        <tr>
+                                            <td class="td"><span class="span">85%</span></td>
+                                            <td class="td"><span class="span">87%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="td">Revisados</td>
+                                            <td class="td">Por Revisar</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="card-v">
+                                <img src="../../img/documento.png" class="img-v">
+                                <h4 class="h4">ACTUAR</h4>
+                                <p class="p">Porcentaje de Avance</p>
+                                <div class="per">
+                                    <table class="table">
+                                        <tr>
+                                            <td class="td"><span class="span">85%</span></td>
+                                            <td class="td"><span class="span">87%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="td">Revisados</td>
+                                            <td class="td">Por Revisar</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <div class="container4">
+                    <a :href="route('programar.index')" class="button-link4">Lista Repositorios Activos</a>
+                </div> 
+                
+                
             </div>
         </template>
     </AppLayout>
 </template>
 <style>
-body{
+body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+.container4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Ajusta la altura según tus necesidades */
+    font-size: 20px;
+}
+
+.button-link4 {
+    padding: 10px 20px;
+    font-size: 18px;
+    /* Tamaño de la letra del enlace */
+    background-color: #60a5fa;
+    /* Color de fondo azul */
+    color: #fff;
+    /* Color del texto blanco */
+    text-decoration: none;
+    /* Eliminar subrayado del enlace */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    /* Transición suave al pasar el ratón */
+}
+
+.button-link4:hover {
+    background-color: #3a8ce0;
+    /* Cambia el color de fondo al pasar el ratón */
+}
+
 
 .container {
     display: flex;
@@ -226,53 +317,62 @@ body{
     color: #fff;
     transition: 0.5s;
 }
-.attendance{
-  margin-top: 20px;
-  text-transform: capitalize;
+
+.attendance {
+    margin-top: 20px;
+    text-transform: capitalize;
 }
-.attendance-list{
-  width: 100%;
-  padding: 10px;
-  margin-top: 10px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
-  border: 1px solid #bebebe;
+
+.attendance-list {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+    border: 1px solid #bebebe;
 }
-.table{
-  border-collapse: collapse;
-  margin: 25px 0;
-  font-size: 15px;
-  min-width: 100%;
-  overflow: hidden;
-  border-radius: 5px 5px 0 0;
+
+.table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 15px;
+    min-width: 100%;
+    overflow: hidden;
+    border-radius: 5px 5px 0 0;
 }
-table thead tr{
-  color: #000000;
-  background: #60a5fa;
-  text-align: left;
-  font-weight: bold;
+
+table thead tr {
+    color: #000000;
+    background: #60a5fa;
+    text-align: left;
+    font-weight: bold;
 }
+
 .table th,
-.table td{
-  padding: 12px 15px;
+.table td {
+    padding: 12px 15px;
 }
-.table tbody tr{
-  border-bottom: 1px solid #ddd;
+
+.table tbody tr {
+    border-bottom: 1px solid #ddd;
 }
-.table tbody tr:nth-of-type(odd){
-  background: #f3f3f3;
+
+.table tbody tr:nth-of-type(odd) {
+    background: #f3f3f3;
 }
-.table button{
-  padding: 6px 20px;
-  border-radius: 10px;
-  cursor: pointer;
-  background: transparent;
-  border: 1px solid #60a5fa;
+
+.table button {
+    padding: 6px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid #60a5fa;
 }
-.table button:hover{
-  background: #60a5fa;
-  color: #fff;
-  transition: 0.5rem;
+
+.table button:hover {
+    background: #60a5fa;
+    color: #fff;
+    transition: 0.5rem;
 }
 </style>
