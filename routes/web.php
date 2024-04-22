@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArchivoController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
@@ -21,5 +22,5 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
     Route::resource('/etiquetas', EtiquetaController::class);
     Route::resource('/programar', ProgramarController::class);
     Route::get('/etiquetas/redirigir', [EtiquetaController::class, 'redirigir'])->name('etiquetas.redirigir');
-
+    Route::get('/archivos/mandar', [ArchivoController::class, 'mandar'])->name('archivos.mandar');
 });

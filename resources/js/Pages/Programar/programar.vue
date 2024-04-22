@@ -27,13 +27,13 @@ const entrarArchivos = id => {
     console.log(`Entrar a los archivos del documento con ID ${id}`);
 };
 
-window.addEventListener('DOMContentLoaded', function() {
+window.addEventListener('DOMContentLoaded', function () {
     if (window.hayDocumentosEstado0) {
         alert('Atención: Hay documentos con estado 0.');
     }
 });
 
-window.addEventListener('DOMContentLoaded', function() {
+window.addEventListener('DOMContentLoaded', function () {
     alert('Prueba de alerta');
 });
 </script>
@@ -64,7 +64,10 @@ window.addEventListener('DOMContentLoaded', function() {
                                     {{ documento.estado_doc ? 'Activo' : 'Inactivo' }}
                                 </div>
                             </td>
-                            <td><button>Entrar a los Archivos</button></td>
+                            <td>
+                                <a :href="route('archivos.mandar',{rolenviar:'admin', id:documento.id})" class="btn-celeste" v-if="$page.props.user.roles.includes('admin')">Entrar a los Archivos</a>
+                                <a :href="route('archivos.mandar',{rolenviar:'transcriptor', id:documento.id})" class="btn-celeste" v-else>Subir los archivos</a>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -184,5 +187,21 @@ table thead tr {
     background-color: #dc3545;
     /* Rojo para estado inactivo */
     color: #fff;
+}
+
+/* Estilos para el botón celeste */
+.btn-celeste {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #60a5fa; /* Color celeste */
+    color: #fff; /* Color de texto blanco */
+    text-decoration: none; /* Quitar subrayado del enlace */
+    border-radius: 4px; /* Bordes redondeados */
+    transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+}
+
+/* Estilo hover para el botón celeste */
+.btn-celeste:hover {
+    background-color: #3086d6; /* Cambio de color al pasar el mouse */
 }
 </style>
