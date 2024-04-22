@@ -103,6 +103,10 @@ class EtiquetaController extends Controller
      */
     public function destroy(string $id)
     {
-        return "$id";
+        return $id;
+    }
+    
+    public function redirigir(){
+        
     }
 }

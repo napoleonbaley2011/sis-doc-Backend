@@ -6,7 +6,6 @@ export default {
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
 import { Link } from "@inertiajs/vue3";
-
 defineProps({
     etiquetas: {
         type: Object,
@@ -50,7 +49,7 @@ const deleteEtiqueta = id => {
                                         etiqueta.nombre }}</Link>
                                 </td>
                                 <td>
-                                    <Link :href="route('etiquetas.edit', etiqueta.id)" class="btn-edit">Editar</Link>
+                                    <Link :href="route('etiquetas.edit', etiqueta.id)" class="btn-edit">Editar</Link>   
                                     <button @click="deleteEtiqueta(etiqueta.id)" class="btn-delete">Eliminar</button>
                                 </td>
                             </tr>

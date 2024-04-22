@@ -20,4 +20,6 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
     Route::resource('/roles', RoleController::class);
     Route::resource('/etiquetas', EtiquetaController::class);
     Route::resource('/programar', ProgramarController::class);
+    Route::get('/etiquetas/redirigir', [EtiquetaController::class, 'redirigir'])->name('etiquetas.redirigir');
+
 });
