@@ -19,7 +19,9 @@ return new class extends Migration
             $table->string('firma');
             $table->integer('estado_archivo');
             $table->integer('version');
+            $table->longText('comentario');
             $table->foreignId('id_editor')->constrained('users');
+            $table->foreignId('id_documento')->constrained('documentos');
         });
     }
 

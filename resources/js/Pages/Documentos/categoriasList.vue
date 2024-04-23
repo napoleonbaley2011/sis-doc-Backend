@@ -31,7 +31,6 @@ const deleteEtiqueta = id => {
                         <Link :href="route('etiquetas.create')" class="text-white bg-sky-600 hover:bg-sky-500 py-2 px-4 rounded mt-4 mb-4">
                         Crear Etiqueta
                         </Link>
-
                     </div>
                     <table class="table">
                         <thead>

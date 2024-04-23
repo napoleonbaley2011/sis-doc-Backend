@@ -23,4 +23,5 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
     Route::resource('/programar', ProgramarController::class);
     Route::get('/etiquetas/redirigir', [EtiquetaController::class, 'redirigir'])->name('etiquetas.redirigir');
     Route::get('/archivos/mandar', [ArchivoController::class, 'mandar'])->name('archivos.mandar');
+    Route::get('/archivos/create', [ArchivoController::class, 'create'])->name('archivos.create');
 });
