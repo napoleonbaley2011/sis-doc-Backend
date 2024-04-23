@@ -49,7 +49,7 @@ const submitForm = async () => {
     </AppLayout>
 </template>
 <style>
-.container {
+.container6 {
     max-width: 600px;
     margin: 50px auto;
     background-color: #fff;

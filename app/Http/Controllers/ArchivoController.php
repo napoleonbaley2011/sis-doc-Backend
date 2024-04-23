@@ -14,17 +14,23 @@ class ArchivoController extends Controller
 
         if($RolUsuario == 'admin'){
             //dump($archivo);
-            return inertia('Archivos/vistaAdmin', ['archivos' => $archivo]);
+            return inertia('Archivos/vistaAdmin', [
+                'archivos' => $archivo,
+                'iddoc' => $id_documento]);
         }else{
             //dump($archivo);
-            return inertia('Archivos/vistaEditor', ['archivos' => $archivo]);
+            return inertia('Archivos/vistaEditor', [
+                'archivos' => $archivo,
+                'iddoc' => $id_documento]);
         }
 
         
     }
 
-    public function create(){
-        return "hola Osita Maleantosa";
+    public function create(Request $id){
+        $var = $id['id'];
+        return inertia('Archivos/Archivocreate',['iddoc'=>$var]);
+        //return $id['id'];
     }
 
     public function accion(){
