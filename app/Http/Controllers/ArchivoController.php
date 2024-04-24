@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Archivo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Inertia\Inertia;
+
+use Illuminate\Support\Facades\Storage;
 
 class ArchivoController extends Controller
 {
@@ -94,5 +97,29 @@ class ArchivoController extends Controller
                 'error' => 'No se seleccionó ningún archivo'
             ]);
         }
+
+        
+    }
+    
+    public function obtenerArchivo($id)
+    {
+        $archivo = Archivo::find($id);
+
+        if (!$archivo) {
+            return response()->json(['error' => 'Archivo no encontrado'], 404);
+        }
+
+        return response()->json(['contenido' => $archivo->contenido]);
+    }
+
+    public function descargarArchivo($filename)
+    {
+        $archivoPath = storage_path('app/archivos/' . $filename);
+
+        if (!Storage::exists('archivos/' . $filename)) {
+            abort(404);
+        }
+
+        return response()->download($archivoPath);
     }
 }

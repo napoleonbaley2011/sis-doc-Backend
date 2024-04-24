@@ -76,7 +76,7 @@ function openModal(archivo) {
 </template>
 <style>
 .attendance {
-    margin-top: 20px;
+    margin-top: 50px;
     text-transform: capitalize;
 }
 

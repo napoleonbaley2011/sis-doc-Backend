@@ -17,7 +17,8 @@ class ProgramarController extends Controller
         SELECT xd.id, xc.nombre_categoria, xd.fecha_creacion, xd.fecha_modificacion, xd.estado_doc, xt.tipo_documento
         FROM documentos xd, categorias xc, tipo_de__documentos xt
         WHERE xd.id_categoria = xc.id
-        AND xd.id_tipo = xt.id;
+        AND xd.id_tipo = xt.id
+        ORDER BY xd.fecha_creacion DESC;
         ");
 
         foreach ($documentos as $documento) {

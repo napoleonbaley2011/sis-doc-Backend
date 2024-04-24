@@ -11,9 +11,9 @@ use App\Http\Controllers\ProgramarController;
 use App\Models\Etiqueta;
 use Inertia\Inertia;
 // No auth Routes
-Route::get('/',[DashboardController::class, 'index']);
+Route::get('/', [DashboardController::class, 'index']);
 
-Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])->group(function () {
+Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',])->group(function () {
     //Auth Routes
     Route::get('/dashboardeditor', [DashboardController::class, 'dashboardeditor'])->name('dashboardeditor');
     Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
@@ -25,4 +25,6 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])
     Route::get('/archivos/mandar', [ArchivoController::class, 'mandar'])->name('archivos.mandar');
     Route::get('/archivos/create', [ArchivoController::class, 'create'])->name('archivos.create');
     Route::post('/archivos/upload', [ArchivoController::class, 'uploadFile'])->name('archivos.upload');
+    Route::get('/archivos/obtener-archivo/{id}', [ArchivoController::class, 'obtenerArchivo'])->name('archivos.obtener');
+    Route::get('/archivos/{filename}', [ArchivoController::class, 'descargarArchivo'])->name('archivos.descargar');
 });
