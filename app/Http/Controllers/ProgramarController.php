@@ -14,11 +14,7 @@ class ProgramarController extends Controller
     {
         $fechaActual = Carbon::now();
         $documentos = DB::select("
-        SELECT xd.id, xc.nombre_categoria, xd.fecha_creacion, xd.fecha_modificacion, xd.estado_doc, xt.tipo_documento
-        FROM documentos xd, categorias xc, tipo_de__documentos xt
-        WHERE xd.id_categoria = xc.id
-        AND xd.id_tipo = xt.id
-        ORDER BY xd.id DESC;
+        SELECT xd.id, xc.nombre_categoria, xd.fecha_creacion, xd.fecha_modificacion, xd.estado_doc, xt.tipo_documento, tmp.cantidad FROM documentos xd, categorias xc, tipo_de__documentos xt, (SELECT d.id AS id_documento, IFNULL(COUNT(a.id), 0) AS cantidad FROM documentos d LEFT JOIN archivos a ON d.id = a.id_documento GROUP BY d.id)tmp WHERE xd.id_categoria = xc.id AND xd.id_tipo = xt.id AND tmp.id_documento = xd.id ORDER BY xd.id DESC;
         ");
 
         foreach ($documentos as $documento) {

@@ -51,6 +51,7 @@ window.addEventListener('DOMContentLoaded', function () {
                             <th>Fecha Vencimiento</th>
                             <th>Estado del Repositorio</th>
                             <th>Accion</th>
+                            <th>Cantidad</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -68,6 +69,7 @@ window.addEventListener('DOMContentLoaded', function () {
                                 <a :href="route('archivos.mandar',{rolenviar:'admin', id:documento.id})" class="btn-celeste" v-if="$page.props.user.roles.includes('admin')">Entrar a los Archivos</a>
                                 <a :href="route('archivos.mandar',{rolenviar:'transcriptor', id:documento.id})" class="btn-celeste" v-else>Subir los archivos</a>
                             </td>
+                            <td><span class="circulo">{{ documento.cantidad }}</span></td>
                         </tr>
                     </tbody>
                 </table>
@@ -204,4 +206,15 @@ table thead tr {
 .btn-celeste:hover {
     background-color: #3086d6; /* Cambio de color al pasar el mouse */
 }
+.circulo {
+    display: inline-block;
+    width: 30px; /* Ancho del círculo */
+    height: 30px; /* Altura del círculo */
+    line-height: 30px; /* Alineación vertical del número */
+    border-radius: 50%; /* Forma circular */
+    background-color: #60a5fa; /* Color de fondo del círculo */
+    color: white; /* Color del número dentro del círculo */
+    text-align: center; /* Alineación horizontal del número */
+}
+
 </style>

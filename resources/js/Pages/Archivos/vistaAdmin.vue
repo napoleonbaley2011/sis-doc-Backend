@@ -6,6 +6,14 @@ defineProps({
     archivos:{
         type: Array,
         required: true
+    },
+    etiqueta:{
+        type: Array,
+        required: true
+    },
+    tipo:{
+        type: Array,
+        required: true
     }
 })
 const archivoSeleccionado = ref(null);
@@ -29,6 +37,8 @@ function descargarArchivo(archivo) {
     <AppLayout>
         <template #header>
             <h1>Archivos</h1>
+            <h1>--------------</h1>
+            <h1>{{ etiqueta[0].nombre }} --- {{ tipo[0].tipo_documento }}</h1>
             <div class="attendance">
                 <h1>Lista de Archivos</h1>
                 <div class="attendance-list">

@@ -11,6 +11,14 @@ const props = defineProps({
     iddoc:{
         type: Object,
         required: true
+    },
+    etiqueta:{
+        type: Array,
+        required: true
+    },
+    tipo:{
+        type: Array,
+        required: true
     }
 })
 
@@ -31,7 +39,8 @@ function openModal(archivo) {
             <h1 class="font-semibold text-xl text-gray-800 leading-tight">Archivos</h1>
             <div class="attendance">
                 <h1>Lista de Archivos</h1>
-                <h1>{{ props.iddoc }}</h1>
+                <h1>-----------------</h1>
+                <h1>{{ props.etiqueta[0].nombre }} --- {{ props.tipo[0].tipo_documento }}</h1>
                 <div class="attendance-list">
                     <div>
                         <Link :href="route('archivos.create', {id: props.iddoc})" class="text-white bg-sky-600 hover:bg-sky-500 py-2 px-4 rounded mt-4 mb-4">Crear Nuevo Archivo</Link>

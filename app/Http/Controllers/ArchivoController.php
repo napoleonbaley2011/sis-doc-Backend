@@ -16,18 +16,39 @@ class ArchivoController extends Controller
         $RolUsuario = $usuario['rolenviar'];
         $id_documento = $usuario['id'];
         $archivo = Archivo::where('id_documento', $id_documento)->paginate(25);
+        $Archivo_etiqueta = DB::select("
+        SELECT xe.nombre 
+        FROM documento_etiqueta xd, etiquetas xe
+        WHERE xd.id_documento = $id_documento
+        AND xd.id_etiqueta = xe.id
+        ");
+        $TipoArchivo = DB::select("
+        SELECT xt.tipo_documento 
+        FROM documentos xd, tipo_de__documentos xt
+        WHERE xd.id = $id_documento
+        AND xt.id = xd.id_tipo
+        ");
+        $cantidad = DB::select("
+        SELECT COUNT(*) as cantidad
+        FROM archivos
+        WHERE id_documento = 7;
+        ");    
 
         if ($RolUsuario == 'admin') {
             //dump($archivo);
             return inertia('Archivos/vistaAdmin', [
                 'archivos' => $archivo,
-                'iddoc' => $id_documento
+                'iddoc' => $id_documento,
+                'etiqueta'=>$Archivo_etiqueta,
+                'tipo'=>$TipoArchivo,
             ]);
         } else {
             //dump($archivo);
             return inertia('Archivos/vistaEditor', [
                 'archivos' => $archivo,
-                'iddoc' => $id_documento
+                'iddoc' => $id_documento,
+                'etiqueta'=>$Archivo_etiqueta,
+                'tipo'=>$TipoArchivo
             ]);
         }
     }
@@ -84,23 +105,19 @@ class ArchivoController extends Controller
             $nuevo_archivo->encargado = $request['encargado'];
             $nuevo_archivo->firma = $request['encargado'];
             $nuevo_archivo->estado_archivo = 0;
-            $nuevo_archivo-> version = $nuevaVersion;
+            $nuevo_archivo->version = $nuevaVersion;
             $nuevo_archivo->comentario = $request['comentario'];
             $nuevo_archivo->id_editor = 2;
             $nuevo_archivo->id_documento = $numero;
             $nuevo_archivo->save();
             return redirect()->route('programar.index');
-
-
         } else {
             return response()->json([
                 'error' => 'No se seleccionó ningún archivo'
             ]);
         }
-
-        
     }
-    
+
     public function obtenerArchivo($id)
     {
         $archivo = Archivo::find($id);
