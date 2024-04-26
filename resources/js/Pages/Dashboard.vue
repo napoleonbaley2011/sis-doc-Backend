@@ -3,8 +3,8 @@ import AppLayout from '@/Layouts/AppLayout.vue';
 import { defineProps } from 'vue';
 import TablaDocumento from '@/Pages/Programar/programar.vue'
 import Welcome from '@/Components/Welcome.vue';
-defineProps({
-    documentos: {
+const props = defineProps({
+    archivos: {
         type: Array,
         required: true,
 
@@ -20,17 +20,19 @@ defineProps({
                         <div class="main-top">
                             <h1 class="h1-v">Dashboard</h1>
                             <i class="fas fa-user-cog"></i>
+                            <!-- <h1>{{ props.archivos }}</h1>-->
                         </div>
                         <div class="users">
                             <div class="card-v">
                                 <img src="../../img/documento.png" class="img-v">
                                 <h4 class="h4">PLANEAR</h4>
                                 <p class="p">Porcentaje de Avance</p>
+                                <p class="p">Numero de Archivos : {{ props.archivos[2].total_archivos }}</p>
                                 <div class="per">
                                     <table class="table">
                                         <tr>
-                                            <td class="td"><span class="span">85%</span></td>
-                                            <td class="td"><span class="span">87%</span></td>
+                                            <td class="td"><span class="span">{{ props.archivos[2].cantidad_archivos_revisados}}</span></td>
+                                            <td class="td"><span class="span">{{ props.archivos[2].cantidad_archivos_sin_revisar }}</span></td>
                                         </tr>
                                         <tr>
                                             <td class="td">Revisados</td>
@@ -43,11 +45,12 @@ defineProps({
                                 <img src="../../img/documento.png" class="img-v">
                                 <h4 class="h4">HACER</h4>
                                 <p class="p">Porcentaje de Avance</p>
+                                <p class="p">Numero de Archivos : {{ props.archivos[1].total_archivos }}</p>
                                 <div class="per">
                                     <table class="table">
                                         <tr>
-                                            <td class="td"><span class="span">85%</span></td>
-                                            <td class="td"><span class="span">87%</span></td>
+                                            <td class="td"><span class="span">{{ props.archivos[1].cantidad_archivos_revisados}}</span></td>
+                                            <td class="td"><span class="span">{{ props.archivos[1].cantidad_archivos_sin_revisar }}</span></td>
                                         </tr>
                                         <tr>
                                             <td class="td">Revisados</td>
@@ -60,11 +63,12 @@ defineProps({
                                 <img src="../../img/documento.png" class="img-v">
                                 <h4 class="h4">VERIFICAR</h4>
                                 <p class="p">Porcentaje de Avance</p>
+                                <p class="p">Numero de Archivos : {{ props.archivos[3].total_archivos }}</p>
                                 <div class="per">
                                     <table class="table">
                                         <tr>
-                                            <td class="td"><span class="span">85%</span></td>
-                                            <td class="td"><span class="span">87%</span></td>
+                                            <td class="td"><span class="span">{{ props.archivos[3].cantidad_archivos_revisados}}</span></td>
+                                            <td class="td"><span class="span">{{ props.archivos[3].cantidad_archivos_sin_revisar }}</span></td>
                                         </tr>
                                         <tr>
                                             <td class="td">Revisados</td>
@@ -77,11 +81,12 @@ defineProps({
                                 <img src="../../img/documento.png" class="img-v">
                                 <h4 class="h4">ACTUAR</h4>
                                 <p class="p">Porcentaje de Avance</p>
+                                <p class="p">Numero de Archivos : {{ props.archivos[0].total_archivos }}</p>
                                 <div class="per">
                                     <table class="table">
                                         <tr>
-                                            <td class="td"><span class="span">85%</span></td>
-                                            <td class="td"><span class="span">87%</span></td>
+                                            <td class="td"><span class="span">{{ props.archivos[0].cantidad_archivos_revisados}}</span></td>
+                                            <td class="td"><span class="span">{{ props.archivos[0].cantidad_archivos_sin_revisar }}</span></td>
                                         </tr>
                                         <tr>
                                             <td class="td">Revisados</td>
