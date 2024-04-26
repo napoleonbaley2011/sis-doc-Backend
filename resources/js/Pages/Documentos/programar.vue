@@ -1,10 +1,12 @@
 <script>
 export default {
     props: {
-        num: Number
+        num: Number,
+        etiqueta:Number
     },
     mounted() {
         console.log('ID recibida:', this.num);
+        console.log('IDETIQUETA recibida:', this.etiqueta);
     }
 }
 </script>
@@ -12,7 +14,8 @@ export default {
 import AppLayout from '@/Layouts/AppLayout.vue';
 import { useForm } from "@inertiajs/vue3";
 import { defineProps } from 'vue';
-const props = defineProps(['num']);
+const props = defineProps(['num','etiqueta']);
+const numEtiqueta = props.etiqueta;
 const numValue = props.num;
 const form = useForm({
     fechaSubida: '',
@@ -21,6 +24,7 @@ const form = useForm({
     tipodoc: '',
     nombre: '',
     categoria: numValue,
+    etiqueta:numEtiqueta,
     id_user: 1,
 })
 

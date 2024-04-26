@@ -44,7 +44,7 @@ const deleteEtiqueta = id => {
                             <tr v-for="etiqueta in etiquetas.data" :key="etiqueta.id">
                                 <td>{{ etiqueta.id }}</td>
                                 <td>
-                                    <Link :href="route('programar.create', { id: etiqueta.id_categoria })">{{
+                                    <Link :href="route('programar.create', { id: etiqueta.id_categoria, idetiqueta:etiqueta.id })">{{
                                         etiqueta.nombre }}</Link>
                                 </td>
                                 <td>

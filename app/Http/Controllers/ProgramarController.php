@@ -18,7 +18,7 @@ class ProgramarController extends Controller
         FROM documentos xd, categorias xc, tipo_de__documentos xt
         WHERE xd.id_categoria = xc.id
         AND xd.id_tipo = xt.id
-        ORDER BY xd.fecha_creacion DESC;
+        ORDER BY xd.id DESC;
         ");
 
         foreach ($documentos as $documento) {
@@ -48,9 +48,12 @@ class ProgramarController extends Controller
      */
     public function create(Request $request)
     {
-        
+        //return $request;
         $num = $request->input('id'); // Obtener la ID de la solicitud
-        return inertia('Documentos/programar', ['num' => $num]);
+        $numetiqueta = $request->input('idetiqueta');
+       
+        return inertia('Documentos/programar', ['num' => $num, 'etiqueta' =>$numetiqueta] );
+
     }
 
     /**
@@ -59,6 +62,8 @@ class ProgramarController extends Controller
     public function store(Request $request)
     {
         //return $request;
+         
+        $idetiqueta = $request['etiqueta'];
         $validateData = $request->validate([
             'fechaSubida'=>'required',
             'fechaEntrega'=> 'required',
@@ -77,8 +82,13 @@ class ProgramarController extends Controller
         $documento->id_categoria = $validateData['categoria'];
         $documento->titulo_documento = $validateData['comentarios'];
         $documento->save();
-        return redirect()->route('documentos.index');
 
+        ///////////////////////
+        $iddocumento = $documento->id;
+
+
+        $consulta = DB::insert("insert into documento_etiqueta(id_documento, id_etiqueta)values($iddocumento,$idetiqueta)");
+        return redirect()->route('documentos.index');
     }
 
     /**
