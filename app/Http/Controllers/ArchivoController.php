@@ -139,4 +139,32 @@ class ArchivoController extends Controller
 
         return response()->download($archivoPath);
     }
+
+    public function aceptar(string $id){
+        $archivos = DB::select("
+        SELECT xl.id, xc.nombre_categoria, xl.nombre_archivo,xd.fecha_modificacion
+        FROM archivos xl, documentos xd, categorias xc
+        WHERE xl.id = $id
+        AND xl.id_documento = xd.id
+        AND xd.id_categoria = xc.id;
+        ");
+        //return $archivo;
+        return inertia('Archivos/formArchivo' ,['archivos' => $archivos]);
+    }
+
+    public function store(Request $request)
+    {
+        $id = $request['id'];
+        $estado = $request['estado'];
+        $comentario = $request['comentario'];
+        //return $comentario;
+
+        $consulta = DB::update("
+        UPDATE archivos
+        SET estado_archivo = $estado , comentario = '$comentario'
+        WHERE id = $id
+        ");
+        return redirect()->route('programar.index');
+
+    }
 }

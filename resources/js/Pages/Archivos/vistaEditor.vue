@@ -60,7 +60,11 @@ function openModal(archivo) {
                                 <td>{{ archivo1.id }}</td>
                                 <td>{{ archivo1.nombre_archivo }}</td>
                                 <td>{{ archivo1.version }}</td>
-                                <td>{{ archivo1.estado_archivo }}</td>
+                                <td>
+                                    <td>
+                                    <span :class="{'circulo-rojo': archivo1.estado_archivo === 0, 'circulo-amarillo': archivo1.estado_archivo === 1, 'circulo-verde': archivo1.estado_archivo === 2}"></span>
+                                </td>
+                                </td>
                                 <td>
                                     <a href="#" class="btn-celeste" @click="openModal(archivo1)">Comentarios</a>
                                 </td>
@@ -234,5 +238,28 @@ table thead tr {
 
 .modal button:hover {
     background-color: #3086d6;
+}
+.circulo-rojo {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ff0000; /* Rojo */
+    display: inline-block;
+}
+
+.circulo-amarillo {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ffff00; /* Amarillo */
+    display: inline-block;
+}
+
+.circulo-verde {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #00ff00; /* Verde */
+    display: inline-block;
 }
 </style>

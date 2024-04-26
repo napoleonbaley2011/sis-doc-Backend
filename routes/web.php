@@ -27,4 +27,6 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
     Route::post('/archivos/upload', [ArchivoController::class, 'uploadFile'])->name('archivos.upload');
     Route::get('/archivos/obtener-archivo/{id}', [ArchivoController::class, 'obtenerArchivo'])->name('archivos.obtener');
     Route::get('/archivos/{filename}', [ArchivoController::class, 'descargarArchivo'])->name('archivos.descargar');
+    Route::get('/archivos/aceptar/{id}', [ArchivoController::class, 'aceptar'])->name('archivos.aceptar');
+    Route::post('/archivos/store', [ArchivoController::class, 'store'])->name('archivos.store');
 });

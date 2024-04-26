@@ -59,9 +59,11 @@ function descargarArchivo(archivo) {
                                     <button @click="mostrarArchivo(archivo)"> {{ archivo.nombre_archivo }} </button>
                                 </td>
                                 <td>{{ archivo.encargado }}</td>
-                                <td>{{ archivo.estado_archivo }}</td>
                                 <td>
-                                    <Link href="" class="btn-edit">Editar</Link>   
+                                    <span :class="{'circulo-rojo': archivo.estado_archivo === 0, 'circulo-amarillo': archivo.estado_archivo === 1, 'circulo-verde': archivo.estado_archivo === 2}"></span>
+                                </td>
+                                <td>
+                                    <Link :href="route('archivos.aceptar', archivo.id)" class="btn-edit">Aceptar</Link>  
                                     <button @click="descargarArchivo(archivo)" class="btn-download">Descargar</button>
                                 </td>
                             </tr>
@@ -209,5 +211,28 @@ table thead tr {
 
 .table tbody tr:nth-child(even) {
     background-color: #f9f9f9;
+}
+.circulo-rojo {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ff0000; /* Rojo */
+    display: inline-block;
+}
+
+.circulo-amarillo {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ffff00; /* Amarillo */
+    display: inline-block;
+}
+
+.circulo-verde {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #00ff00; /* Verde */
+    display: inline-block;
 }
 </style>
