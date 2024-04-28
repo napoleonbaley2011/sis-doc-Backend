@@ -6,11 +6,11 @@
     box-sizing: border-box;
     padding: 0;
 }
-body{   
+body{       
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-image: url("../../img/login.jpg");
+    background-image: url("../img/login.jpg");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
