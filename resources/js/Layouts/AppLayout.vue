@@ -33,26 +33,26 @@ const logout = () => {
     <div>
 
         <Head :title="title" />
-        <nav class="navbar1">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a href="#">Inicio</a></li>
-                <li class="nav-item" v-if="$page.props.user.permission.includes('create roles')"><a :href="route('documentos.index')" :active="route().current('documentos.*')">Documentos</a></li>
-                <li class="nav-item"><a href="#">Seguimiento</a></li>
-                <li class="nav-item"><a href="#">Reportes</a></li>
-            </ul>
-            <div class="admin-menu">
-                <input type="checkbox" id="admin-toggle">
-                <label for="admin-toggle" class="admin-btn">
-                    <span class="arrow-down"></span> Admin
-                </label>
-                <div class="admin-options">
-                    <ul>
-                        <li><a href="#">Perfil</a></li>
-                        <li><a href="#">Cerrar Sesión</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <nav class="navbar">
+  <ul class="navbar-nav">
+    <li class="nav-item"><a href="#">Inicio</a></li>
+    <li class="nav-item"><a href="#">Documentos</a></li>
+    <li class="nav-item"><a href="#">Seguimiento</a></li>
+    <li class="nav-item"><a href="#">Reportes</a></li>
+  </ul>
+  <div class="admin-menu">
+    <input type="checkbox" id="admin-toggle">
+    <label for="admin-toggle" class="admin-btn">
+      <span class="arrow-down"></span> Admin
+    </label>
+    <div class="admin-options">
+      <ul>
+        <li><a href="#">Perfil</a></li>
+        <li><a href="#">Cerrar Sesión</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
 
     </div>
@@ -199,7 +199,7 @@ const logout = () => {
 
 .navbar-nav {
     list-style: none;
-    margin: 10px;
+    margin: 0;
     padding: 0;
     display: flex;
 }
@@ -266,6 +266,7 @@ const logout = () => {
     padding: 3px;
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
-}
+  }
+  
 
 </style>
