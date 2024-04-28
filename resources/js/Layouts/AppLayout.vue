@@ -31,11 +31,34 @@ const logout = () => {
 <template>
 
     <div>
+
         <Head :title="title" />
-        <h1>Aqui mi Amoooor</h1>
+        <nav class="navbar">
+  <ul class="navbar-nav">
+    <li class="nav-item"><a href="#">Inicio</a></li>
+    <li class="nav-item"><a href="#">Documentos</a></li>
+    <li class="nav-item"><a href="#">Seguimiento</a></li>
+    <li class="nav-item"><a href="#">Reportes</a></li>
+  </ul>
+  <div class="admin-menu">
+    <input type="checkbox" id="admin-toggle">
+    <label for="admin-toggle" class="admin-btn">
+      <span class="arrow-down"></span> Admin
+    </label>
+    <div class="admin-options">
+      <ul>
+        <li><a href="#">Perfil</a></li>
+        <li><a href="#">Cerrar Sesión</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
     </div>
 
     <div>
+
         <Head :title="title" />
         <div class="min-h-screen bg-gray-200">
             <nav class="bg-slate-300 border-b border-gray-100">
@@ -45,7 +68,7 @@ const logout = () => {
                         <div class="flex">
                             <!-- Logo -->
                             <!-- Navigation Links -->
-                            <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex" >
+                            <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                                 <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
                                     Inicio
                                 </NavLink>
@@ -165,4 +188,84 @@ const logout = () => {
         </div>
     </div>
 </template>
-<style></style>
+<style>
+.navbar {
+    background-color: #131c46;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:  30px;
+  }
+  
+  .navbar-nav {
+    list-style: none;
+    margin: 10px;
+    padding: 0;
+    display: flex;
+  }
+  
+  .nav-item {
+    margin-right: 90px;
+  }
+  
+  .nav-item:last-child {
+    margin-right: 0;
+  }
+  
+  .nav-item a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .admin-menu {
+    position: relative;
+  }
+  
+  .admin-btn {
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .admin-options {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    top: 100%;
+    right: 0;
+    width: 120px;
+  }
+  
+  .admin-options ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .admin-options ul li {
+    padding: 10px;
+  }
+  
+  .admin-options ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .admin-options ul li:hover {
+    background-color: #555;
+  }
+  
+  #admin-toggle:checked + .admin-btn + .admin-options {
+    display: block;
+  }
+  
+  .arrow-down {
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
+  
+
+</style>
