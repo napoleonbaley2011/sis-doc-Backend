@@ -167,4 +167,39 @@ class ArchivoController extends Controller
         return redirect()->route('programar.index');
 
     }
+
+    public function index(){
+        $archivos = DB::select("
+        SELECT x1.id, x1.nombre_archivo, tmp.nombre
+        FROM archivos x1, documentos xd, categorias xc , (SELECT xd.id_documento, xe.nombre
+												        FROM documento_etiqueta xd, etiquetas xe
+												        WHERE xd.id_etiqueta = xe.id)tmp
+        WHERE x1.id_documento = xd.id
+        AND xd.id_categoria = xc.id
+        AND x1.id_documento = tmp.id_documento
+        ORDER BY x1.id desc
+        ");
+        return inertia('Seguimiento/index',['archivos' => $archivos]);
+    }
+
+    public function eliminar(string $id){
+        //return $id;
+        $archivo = DB::select("
+        SELECT x1.id, x1.id_documento,x1.nombre_archivo ,tmp.nombre
+        FROM archivos x1, ( SELECT xd.id_documento, xe.nombre
+                            FROM documento_etiqueta xd, etiquetas xe
+                            WHERE xd.id_etiqueta = xe.id )tmp
+        WHERE x1.id = $id
+        AND x1.id_documento = tmp.id_documento
+        ");
+        
+        $idarchivo= $archivo[0]->id;
+        $iddoc= $archivo[0]->id_documento;
+        $nombreArchivo= $archivo[0]->nombre_archivo;
+        $nombreRespo= $archivo[0]->nombre;
+        
+   
+        
+       // return $archivo;
+    }
 }

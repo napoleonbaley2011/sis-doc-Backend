@@ -18,7 +18,6 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
     Route::get('/dashboardeditor', [DashboardController::class, 'dashboardeditor'])->name('dashboardeditor');
     Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
     Route::resource('/documentos', DocumentoController::class);
-    Route::resource('/roles', RoleController::class);
     Route::resource('/etiquetas', EtiquetaController::class);
     Route::resource('/programar', ProgramarController::class);
     Route::get('/etiquetas/redirigir', [EtiquetaController::class, 'redirigir'])->name('etiquetas.redirigir');
@@ -29,4 +28,6 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
     Route::get('/archivos/{filename}', [ArchivoController::class, 'descargarArchivo'])->name('archivos.descargar');
     Route::get('/archivos/aceptar/{id}', [ArchivoController::class, 'aceptar'])->name('archivos.aceptar');
     Route::post('/archivos/store', [ArchivoController::class, 'store'])->name('archivos.store');
+    Route::get('/archivos',[ArchivoController::class, 'index'])->name('archivos.index');
+    Route::delete('/archivos/eliminar/{id}',[ArchivoController::class, 'eliminar'])->name('archivos.eliminar');
 });

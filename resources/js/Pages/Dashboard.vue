@@ -193,13 +193,6 @@ const props = defineProps({
     </AppLayout>
 </template>
 <style>
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 .container4 {
     display: flex;
     justify-content: center;

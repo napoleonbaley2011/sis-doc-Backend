@@ -1,88 +1,51 @@
-<script>
-export default {
-    name: 'ListaRepo'
-}
-</script>
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
-import { Link } from "@inertiajs/vue3";
+import { Inertia } from '@inertiajs/inertia';
 
 defineProps({
-    documentos: {
-        type: Object,
-        required: true
-    },
-    hayDocumentosEstado0: {
-        type: Boolean,
+    archivos: {
+        type: Array,
         required: true
     }
 })
-
-const getEstadoClass = estado => {
-    return estado ? 'activo' : 'inactivo';
-};
-
-const entrarArchivos = id => {
-    // Aquí puedes agregar la lógica para redirigir a la página de archivos con el ID del documento
-    console.log(`Entrar a los archivos del documento con ID ${id}`);
-};
-
-window.addEventListener('DOMContentLoaded', function () {
-    if (window.hayDocumentosEstado0) {
-        alert('Atención: Hay documentos con estado 0.');
+const deleteArchivo = id => {
+    if (confirm('Estas Seguro ?')) {
+        Inertia.delete(route('archivos.eliminar', id));
     }
-});
-
-window.addEventListener('DOMContentLoaded', function () {
-    alert('Prueba de alerta');
-});
-
-
+}
 </script>
 <template>
     <AppLayout>
-        <div class="attendance">
-            <h1>Lista de Documentos</h1>
+        <template #header> 
+            <h1>Hola Seguimientos</h1>
+            <h1>{{ archivos.id }}</h1>
+            <!--<h1>{{ archivos }}</h1>-->
             <div class="attendance-list">
                 <table class="table">
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Categoria</th>
-                            <th>Fecha Programada</th>
-                            <th>Fecha Vencimiento</th>
-                            <th>Estado del Repositorio</th>
-                            <th>Accion</th>
-                            <th>Cantidad</th>
+                            <th>Nombre</th>
+                            <th>Nombre Repositorio</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="documento in documentos" :key="documento.id">
-                            <td>{{ documento.id }}</td>
-                            <td>{{ documento.nombre_categoria }}</td>
-                            <td>{{ documento.fecha_creacion }}</td>
-                            <td>{{ documento.fecha_modificacion }}</td>
-                            <td>
-                                <div :class="['estado-repo', getEstadoClass(documento.estado_doc)]">
-                                    {{ documento.estado_doc ? 'Activo' : 'Inactivo' }}
-                                </div>
+                        <tr v-for="archivo in archivos">
+                            <td>{{ archivo.id }}</td>
+                            <td>{{ archivo.nombre_archivo }}</td>
+                            <td>{{ archivo.nombre }}</td>
+                            <td> 
+                                <button @click="deleteArchivo(archivo.id)" class="btn-delete">Eliminar</button>
                             </td>
-                            <td>
-                                <a :href="route('archivos.mandar', { rolenviar: 'admin', id: documento.id })"
-                                    class="btn-celeste" v-if="$page.props.user.roles.includes('admin')">Entrar a los
-                                    Archivos</a>
-                                <a :href="route('archivos.mandar', { rolenviar: 'transcriptor', id: documento.id })"
-                                    class="btn-celeste" v-else>Subir los archivos</a>
-                            </td>
-                            <td><span class="circulo">{{ documento.cantidad }}</span></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-        </div>
+        </template>
     </AppLayout>
-</template>
 
+</template>
 <style>
 .attendance {
     margin-top: 30px;
@@ -109,7 +72,7 @@ window.addEventListener('DOMContentLoaded', function () {
 }
 
 table thead tr {
-    color: #000000;
+    color: #FFFFFF;
     background: #60a5fa;
     text-align: left;
     font-weight: bold;
@@ -126,21 +89,6 @@ table thead tr {
 
 .table tbody tr:nth-of-type(odd) {
     background: #f3f3f3;
-}
-
-.table button {
-    padding: 6px 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    background: #60a5fa;
-    border: 1px solid #60a5fa;
-    color: white;
-}
-
-.table button:hover {
-    background: #60a5fa;
-    color: #000000;
-    transition: 0.5rem;
 }
 
 .btn-edit {

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Archivo;
 use Illuminate\Http\Request;
 
 class ComentarioController extends Controller
@@ -11,7 +12,8 @@ class ComentarioController extends Controller
      */
     public function index()
     {
-        //
+        $archivos = Archivo::paginate(25);
+        return inertia('Seguimiento/index',['documentos' => $archivos]);
     }
 
     /**
