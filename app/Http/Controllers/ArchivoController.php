@@ -197,9 +197,14 @@ class ArchivoController extends Controller
         $iddoc= $archivo[0]->id_documento;
         $nombreArchivo= $archivo[0]->nombre_archivo;
         $nombreRespo= $archivo[0]->nombre;
-        
-   
-        
+
+        $consulta = DB::insert("
+        INSERT INTO archivo_recuperar(id_archivo,id_documento,nombre_archivo,nombre_etiqueta)values($idarchivo,$iddoc,'$nombreArchivo','$nombreRespo')
+        ");
+
+        $eliminado = Archivo::find($id);
+        $eliminado ->delete();
+        return redirect()->route('archivos.index');
        // return $archivo;
     }
 }

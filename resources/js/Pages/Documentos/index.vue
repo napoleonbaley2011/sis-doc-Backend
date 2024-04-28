@@ -13,30 +13,34 @@ import AppLayout from '@/Layouts/AppLayout.vue';
             <div class="title-cards">
                 <h2>Categorias de Documentos</h2>
             </div>
-            <div class="container-card">
 
-                <div class="card">
-                    <figure>
-                        <img src="https://image.freepik.com/foto-gratis/desarrollo-programadores-desarrollo-tecnologias-diseno-codificacion-sitios-web_18497-1090.jpg">
-                    </figure>
-                    <div class="contenido-card">
-                        <h3>Planear</h3>
-                        <a :href="route('etiquetas.index', {nombreBoton: '1'})">Programar Documento</a>
+            <div class="body1">
+
+                
+                <div class="container-card">
+                    
+                    <div class="card">
+                        <figure>
+                            <img src="https://image.freepik.com/foto-gratis/desarrollo-programadores-desarrollo-tecnologias-diseno-codificacion-sitios-web_18497-1090.jpg">
+                        </figure>
+                        <div class="contenido-card">
+                            <h3>Planear</h3>
+                            <a :href="route('etiquetas.index', {nombreBoton: '1'})">Programar Documento</a>
+                        </div>
                     </div>
-                </div>
-                <div class="card">
-                    <figure>
-                        <img src="https://image.freepik.com/foto-gratis/desarrollo-programadores-desarrollo-tecnologias-diseno-codificacion-sitios-web_18497-1090.jpg">
-                    </figure>
-                    <div class="contenido-card">
-                        <h3>Hacer</h3>
-                        <a :href="route('etiquetas.index', {nombreBoton: '2'})">Programar Documento</a>
+                    <div class="card">
+                        <figure>
+                            <img src="https://image.freepik.com/foto-gratis/desarrollo-programadores-desarrollo-tecnologias-diseno-codificacion-sitios-web_18497-1090.jpg">
+                        </figure>
+                        <div class="contenido-card">
+                            <h3>Hacer</h3>
+                            <a :href="route('etiquetas.index', {nombreBoton: '2'})">Programar Documento</a>
                     </div>
                 </div>
                 <div class="card">
                     <figure>
                         <img
-                            src="https://image.freepik.com/foto-gratis/desarrollo-programadores-desarrollo-tecnologias-diseno-codificacion-sitios-web_18497-1090.jpg">
+                        src="https://image.freepik.com/foto-gratis/desarrollo-programadores-desarrollo-tecnologias-diseno-codificacion-sitios-web_18497-1090.jpg">
                     </figure>
                     <div class="contenido-card">
                         <h3>Verificar</h3>
@@ -46,7 +50,7 @@ import AppLayout from '@/Layouts/AppLayout.vue';
                 <div class="card">
                     <figure>
                         <img
-                            src="https://image.freepik.com/foto-gratis/desarrollo-programadores-desarrollo-tecnologias-diseno-codificacion-sitios-web_18497-1090.jpg">
+                        src="https://image.freepik.com/foto-gratis/desarrollo-programadores-desarrollo-tecnologias-diseno-codificacion-sitios-web_18497-1090.jpg">
                     </figure>
                     <div class="contenido-card">
                         <h3>Actuar</h3>
@@ -54,19 +58,18 @@ import AppLayout from '@/Layouts/AppLayout.vue';
                     </div>
                 </div>
             </div>
-
+            
+        </div>
         </template>
     </AppLayout>
     
 </template>
 
 <style>
-@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
 }
 /*Cards*/
 .container-card{

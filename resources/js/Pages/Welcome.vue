@@ -26,7 +26,6 @@ function handleImageError() {
 }
 </script>
 <template>
-
     <Head title="Welcome" />
     <div class="body1">
         <div class="header">
@@ -53,16 +52,7 @@ function handleImageError() {
     </div>
 </template>
 <style>
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-image: url("../../img/login.jpg");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-}
+
 
 .header {
     background-color: rgba(0, 0, 0, 0.8);
