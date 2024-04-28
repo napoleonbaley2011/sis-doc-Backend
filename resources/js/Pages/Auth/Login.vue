@@ -25,17 +25,12 @@ const submit = () => {
 };
 </script>
 
-<template body>
+<template>
     <div class="header">
         <nav class="navbar">
             <div class="logo">
                 <a href="#">SIS - DOC</a>
             </div>
-            <ul class="nav-links">
-                <Link :href="route('login')" class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
-                    Log in
-                </Link>
-            </ul>
         </nav>
     </div>
     <div class="body">
@@ -73,7 +68,7 @@ const submit = () => {
                     <input type="checkbox" v-model="form.remember"> Recordar Usuario
                     </label>
                 </div>
-                <button type="submit" class="btn">INGRESAR</button>
+                <button type="submit" class="btn1">INGRESAR</button>
             </form>
         </div>
     </div>
@@ -98,7 +93,6 @@ const submit = () => {
     position: fixed;
     width: 100%;
     z-index: 1000;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .navbar {
@@ -199,7 +193,7 @@ const submit = () => {
     margin:   15px;
     display: flex;
 }
-.btn {
+.btn1 {
     width:  100%;
     height: 45px;
     background: #162938;
