@@ -89,7 +89,7 @@ const logout = () => {
                             </div>
                             <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex"
                                 v-if="$page.props.user.permission.includes('create roles')">
-                                <NavLink :href="route('documentos.index')" :active="route().current('roles.*')">
+                                <NavLink :href="route('reporte.index')" :active="route().current('reportes.*')">
                                     Reportes
                                 </NavLink>
                             </div>

@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Archivo;
 use Illuminate\Http\Request;
 
-class ComentarioController extends Controller
+class ReporteController extends Controller
 {
     /**
      * Display a listing of the resource.

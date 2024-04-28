@@ -207,4 +207,9 @@ class ArchivoController extends Controller
         return redirect()->route('archivos.index');
        // return $archivo;
     }
+
+    public function ver(){
+       
+        return inertia('Seguimiento/reporte');
+    }
 }

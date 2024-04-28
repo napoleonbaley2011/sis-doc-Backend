@@ -8,6 +8,7 @@ use App\Http\Controllers\DocumentoController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\EtiquetaController;
 use App\Http\Controllers\ProgramarController;
+use App\Http\Controllers\ReporteController;
 use App\Models\Etiqueta;
 use Inertia\Inertia;
 // No auth Routes
@@ -30,4 +31,6 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
     Route::post('/archivos/store', [ArchivoController::class, 'store'])->name('archivos.store');
     Route::get('/archivos',[ArchivoController::class, 'index'])->name('archivos.index');
     Route::delete('/archivos/eliminar/{id}',[ArchivoController::class, 'eliminar'])->name('archivos.eliminar');
+    Route::resource('/reporte', ReporteController::class);
+
 });
