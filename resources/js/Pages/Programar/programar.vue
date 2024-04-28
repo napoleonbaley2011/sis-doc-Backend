@@ -85,13 +85,13 @@ window.addEventListener('DOMContentLoaded', function () {
 
 <style>
 .attendance {
-    margin-top: 30px;
+    margin-top: 20px;
     text-transform: capitalize;
 }
 
 .attendance-list {
     width: 100%;
-    padding: 30px;
+    padding: 10px;
     margin-top: 10px;
     background: #fff;
     border-radius: 10px;
@@ -128,20 +128,6 @@ table thead tr {
     background: #f3f3f3;
 }
 
-.table button {
-    padding: 6px 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    background: #60a5fa;
-    border: 1px solid #60a5fa;
-    color: white;
-}
-
-.table button:hover {
-    background: #60a5fa;
-    color: #000000;
-    transition: 0.5rem;
-}
 
 .btn-edit {
     padding: 6px 20px;

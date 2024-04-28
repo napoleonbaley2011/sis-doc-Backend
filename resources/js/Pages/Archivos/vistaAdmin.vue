@@ -191,27 +191,6 @@ table thead tr {
     /* Color azul oscuro al pasar el mouse */
 }
 
-/* Ajustes adicionales para la tabla */
-.table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.table th,
-.table td {
-    padding: 8px;
-    border-bottom: 1px solid #ddd;
-    text-align: left;
-}
-
-.table th {
-    background-color: #f2f2f2;
-    font-weight: bold;
-}
-
-.table tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
 .circulo-rojo {
     width: 20px;
     height: 20px;

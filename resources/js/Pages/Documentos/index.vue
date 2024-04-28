@@ -66,11 +66,6 @@ import AppLayout from '@/Layouts/AppLayout.vue';
 </template>
 
 <style>
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 /*Cards*/
 .container-card{
 	width: 100%;

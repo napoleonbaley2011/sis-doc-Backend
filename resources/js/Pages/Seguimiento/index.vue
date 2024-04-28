@@ -48,7 +48,7 @@ const deleteArchivo = id => {
 </template>
 <style>
 .attendance {
-    margin-top: 30px;
+    margin-top: 20px;
     text-transform: capitalize;
 }
 

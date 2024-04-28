@@ -89,7 +89,7 @@ function openModal(archivo) {
 </template>
 <style>
 .attendance {
-    margin-top: 50px;
+    margin-top: 20px;
     text-transform: capitalize;
 }
 
