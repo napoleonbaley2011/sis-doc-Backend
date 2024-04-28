@@ -35,10 +35,10 @@ const logout = () => {
         <Head :title="title" />
         <nav class="navbar">
   <ul class="navbar-nav">
-    <li class="nav-item"><a href="#">Inicio</a></li>
-    <li class="nav-item"><a href="#">Documentos</a></li>
-    <li class="nav-item"><a href="#">Seguimiento</a></li>
-    <li class="nav-item"><a href="#">Reportes</a></li>
+    <li class="nav-item" v-if="$page.props.user.permission.includes('create roles')"><a :href="route('dashboard')" :active="route().current('dashboard')">Inicio</a></li>
+    <li class="nav-item" v-if="$page.props.user.permission.includes('create roles')"><a :href="route('documentos.index')" :active="route().current('documentos.*')">Documentos</a></li>
+    <li class="nav-item" v-if="$page.props.user.permission.includes('create roles')"><a :href="route('archivos.index')" :active="route().current('seguimiento.*')">Seguimiento</a></li>
+    <li class="nav-item" v-if="$page.props.user.permission.includes('create roles')"><a :href="route('documentos.index')" :active="route().current('roles.*')">Reportes</a></li>
   </ul>
   <div class="admin-menu">
     <input type="checkbox" id="admin-toggle">
@@ -47,7 +47,7 @@ const logout = () => {
     </label>
     <div class="admin-options">
       <ul>
-        <li><a href="#">Perfil</a></li>
+        <li><a :href="route('profile.show')">Perfil</a></li>
         <li><a href="#">Cerrar Sesión</a></li>
       </ul>
     </div>
@@ -199,7 +199,7 @@ const logout = () => {
   
   .navbar-nav {
     list-style: none;
-    margin: 10px;
+    margin: 0;
     padding: 0;
     display: flex;
   }
@@ -266,6 +266,8 @@ const logout = () => {
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
   }
+
+
   
 
 </style>
