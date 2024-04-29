@@ -7,7 +7,7 @@
             <p>La caracteristica que presenta es la siguiente: Color Rojo Sin Revisar</p>
             <div>
                 <!-- Tu contenido existente aquí -->
-                <a :href="route('reporte.create')" target="_blank">Reportes</a>
+                <a class="btn-reportes" :href="route('reporte.create')" target="_blank">Reportes</a>
             </div>
             <div id="chartContainerWrapper">
                 <div v-for="archivo in archivos" :key="archivo.id" id="chartContainer">
@@ -84,7 +84,14 @@ function generarPDF() {
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
+.btn-reportes {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #2ecc71; /* Color verde */
+    color: #fff; /* Texto blanco */
+    text-decoration: none;
+    border-radius: 5px;
+}
 /* Estilos para las barras */
 .bar {
     width: 140px;
