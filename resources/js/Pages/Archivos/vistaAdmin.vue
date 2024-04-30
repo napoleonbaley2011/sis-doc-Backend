@@ -3,15 +3,15 @@ import AppLayout from '@/Layouts/AppLayout.vue';
 import { Link } from "@inertiajs/vue3";
 import { ref } from 'vue';
 defineProps({
-    archivos:{
+    archivos: {
         type: Array,
         required: true
     },
-    etiqueta:{
+    etiqueta: {
         type: Array,
         required: true
     },
-    tipo:{
+    tipo: {
         type: Array,
         required: true
     }
@@ -36,8 +36,9 @@ function descargarArchivo(archivo) {
 <template>
     <AppLayout>
         <template #header>
-            <h1>Archivos</h1>
-            <h1>--------------</h1>
+            <div class="titulo">
+                <h1>ARCHIVOS</h1>
+            </div>
             <h1>{{ etiqueta[0].nombre }} --- {{ tipo[0].tipo_documento }}</h1>
             <div class="attendance">
                 <h1>Lista de Archivos</h1>
@@ -60,10 +61,11 @@ function descargarArchivo(archivo) {
                                 </td>
                                 <td>{{ archivo.encargado }}</td>
                                 <td>
-                                    <span :class="{'circulo-rojo': archivo.estado_archivo === 0, 'circulo-amarillo': archivo.estado_archivo === 1, 'circulo-verde': archivo.estado_archivo === 2}"></span>
+                                    <span
+                                        :class="{ 'circulo-rojo': archivo.estado_archivo === 0, 'circulo-amarillo': archivo.estado_archivo === 1, 'circulo-verde': archivo.estado_archivo === 2 }"></span>
                                 </td>
                                 <td>
-                                    <Link :href="route('archivos.aceptar', archivo.id)" class="btn-edit">Aceptar</Link>  
+                                    <Link :href="route('archivos.aceptar', archivo.id)" class="btn-edit">Aceptar</Link>
                                     <button @click="descargarArchivo(archivo)" class="btn-download">Descargar</button>
                                 </td>
                             </tr>
@@ -87,9 +89,17 @@ function descargarArchivo(archivo) {
     </b-modal>
 </template>
 <style>
+.titulo{
+    text-align: center;
+    color: #131c46;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif ;
+    border-bottom: 2px solid #bebebe;
+}
+
 .attendance {
     margin-top: 20px;
     text-transform: capitalize;
+    font-size: 12px;
 }
 
 .attendance-list {
