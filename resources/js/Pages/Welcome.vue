@@ -39,7 +39,7 @@ defineProps({
                 <div class="hero-content">
                     <h1>Bienvenido a SIS-DOC</h1>
                     <p>Gestor manejo de documentos</p>
-                    <a href="#" class="btn">Ver Proyectos</a>
+                    <a :href="route('archivos.ver')" class="btn">Ver Proyectos</a>
                 </div>
             </section>
         </main>
@@ -136,4 +136,5 @@ defineProps({
 .btn:hover {
     background-color: #ffc100;
 }
+
 </style>

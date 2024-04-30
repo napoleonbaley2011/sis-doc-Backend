@@ -8,15 +8,15 @@ const props = defineProps({
         type: Object,
         required: true
     },
-    iddoc:{
+    iddoc: {
         type: Object,
         required: true
     },
-    etiqueta:{
+    etiqueta: {
         type: Array,
         required: true
     },
-    tipo:{
+    tipo: {
         type: Array,
         required: true
     }
@@ -36,14 +36,17 @@ function openModal(archivo) {
 <template>
     <AppLayout>
         <template #header>
-            <h1 class="font-semibold text-xl text-gray-800 leading-tight">Archivos</h1>
             <div class="attendance">
+                <div class="titulo">
+                    <h1>ARCHIVOS</h1>
+                </div>
                 <h1>Lista de Archivos</h1>
-                <h1>-----------------</h1>
                 <h1>{{ props.etiqueta[0].nombre }} --- {{ props.tipo[0].tipo_documento }}</h1>
                 <div class="attendance-list">
                     <div>
-                        <Link :href="route('archivos.create', {id: props.iddoc})" class="text-white bg-sky-600 hover:bg-sky-500 py-2 px-4 rounded mt-4 mb-4">Crear Nuevo Archivo</Link>
+                        <Link :href="route('archivos.create', { id: props.iddoc })"
+                            class="text-white bg-sky-600 hover:bg-sky-500 py-2 px-4 rounded mt-4 mb-4">Crear Nuevo
+                        Archivo</Link>
                     </div>
                     <table class="table">
                         <thead>
@@ -61,8 +64,9 @@ function openModal(archivo) {
                                 <td>{{ archivo1.nombre_archivo }}</td>
                                 <td>{{ archivo1.version }}</td>
                                 <td>
-                                    <td>
-                                    <span :class="{'circulo-rojo': archivo1.estado_archivo === 0, 'circulo-amarillo': archivo1.estado_archivo === 1, 'circulo-verde': archivo1.estado_archivo === 2}"></span>
+                                <td>
+                                    <span
+                                        :class="{ 'circulo-rojo': archivo1.estado_archivo === 0, 'circulo-amarillo': archivo1.estado_archivo === 1, 'circulo-verde': archivo1.estado_archivo === 2 }"></span>
                                 </td>
                                 </td>
                                 <td>
@@ -80,7 +84,7 @@ function openModal(archivo) {
             <div class="modal">
                 <h2>Comentarios de {{ archivoSeleccionado.nombre_archivo }}</h2>
                 <ul>
-                    <li>{{ archivoSeleccionado.comentario }}</li> 
+                    <li>{{ archivoSeleccionado.comentario }}</li>
                 </ul>
                 <button @click="showModal = false">Cerrar modal</button>
             </div>
@@ -88,6 +92,12 @@ function openModal(archivo) {
     </AppLayout>
 </template>
 <style>
+.titulo{
+    text-align: center;
+    color: #131c46;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif ;
+    border-bottom: 2px solid #bebebe;
+}
 .attendance {
     margin-top: 20px;
     text-transform: capitalize;
@@ -205,7 +215,7 @@ table thead tr {
     left: 0;
     width: 100px;
     height: 100px;
-    
+
     z-index: 999;
 }
 
@@ -239,11 +249,13 @@ table thead tr {
 .modal button:hover {
     background-color: #3086d6;
 }
+
 .circulo-rojo {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background-color: #ff0000; /* Rojo */
+    background-color: #ff0000;
+    /* Rojo */
     display: inline-block;
 }
 
@@ -251,7 +263,8 @@ table thead tr {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background-color: #ffff00; /* Amarillo */
+    background-color: #ffff00;
+    /* Amarillo */
     display: inline-block;
 }
 
@@ -259,7 +272,8 @@ table thead tr {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background-color: #00ff00; /* Verde */
+    background-color: #00ff00;
+    /* Verde */
     display: inline-block;
 }
 </style>

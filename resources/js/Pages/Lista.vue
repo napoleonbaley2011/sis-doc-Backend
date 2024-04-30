@@ -1,0 +1,277 @@
+<script setup>
+import { Head, Link } from '@inertiajs/vue3';
+
+defineProps({
+    archivos:{
+        type:Array,
+        required: true 
+    }
+});
+
+function descargarArchivo(archivo) {
+    window.open(`/archivos/${archivo.nombre_archivo}`, '_blank');
+}
+
+</script>
+<template>
+    <Head title="Welcome" />
+    <div class="body1">
+        <div class="header">
+            <nav class="navbar">
+                <div class="logo">
+                    <a href="#">SIS - DOC</a>
+                </div>
+                <ul class="nav-links">
+                    <Link :href="route('login')" class="btn">
+                        Ingresar
+                    </Link>
+                </ul>
+            </nav>
+        </div>
+        <main class="hero-container1">
+            <div class="attendance">
+                <h1>Lista de Archivos</h1>
+                <div class="attendance-list">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre del Archivo</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="archivo in archivos" :key="archivo.id">
+                                <td>{{ archivo.id }}</td>
+                                <td>{{ archivo.nombre_archivo }}</td>
+                                <td>
+                                    <button @click="descargarArchivo(archivo)" class="btn-download">Descargar</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+</template>
+<style>
+
+.attendance {
+    margin-top: 20px;
+    text-transform: capitalize;
+    font-size: 12px;
+}
+
+.attendance-list {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+    border: 1px solid #bebebe;
+}
+
+.table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 15px;
+    min-width: 100%;
+    overflow: hidden;
+    border-radius: 5px 5px 0 0;
+}
+
+table thead tr {
+    color: #000000;
+    background: #60a5fa;
+    text-align: left;
+    font-weight: bold;
+}
+
+.table th,
+.table td {
+    padding: 12px 15px;
+}
+
+.table tbody tr {
+    border-bottom: 1px solid #ddd;
+}
+
+.table tbody tr:nth-of-type(odd) {
+    background: #f3f3f3;
+}
+
+.btn-edit {
+    padding: 6px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #34af6d;
+    /* Color verde bonito */
+    border: none;
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-edit:hover {
+    background: #269e54;
+    /* Color verde oscuro al pasar el mouse */
+}
+
+/* Estilos para el botón "Eliminar" */
+.btn-delete {
+    padding: 6px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #ff4d4d;
+    /* Color rojo bonito */
+    border: none;
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+.btn-delete:hover {
+    background: #e63939;
+    /* Color rojo oscuro al pasar el mouse */
+}
+/* Estilos personalizados para el modal o ventana emergente */
+.b-modal-dialog {
+    max-width: 800px;
+}
+
+.archivo-modal-content {
+    padding: 20px;
+}
+
+/* Estilos para el botón "Descargar" */
+.btn-download {
+    padding: 6px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #3498db;
+    /* Color azul bonito */
+    border: none;
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-download:hover {
+    background: #2980b9;
+    /* Color azul oscuro al pasar el mouse */
+}
+
+.circulo-rojo {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ff0000; /* Rojo */
+    display: inline-block;
+}
+
+.circulo-amarillo {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ffff00; /* Amarillo */
+    display: inline-block;
+}
+
+.circulo-verde {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #00ff00; /* Verde */
+    display: inline-block;
+}
+
+.header {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo a {
+    color: #fff;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style-type: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-right: 20px;
+}
+
+.nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #ffd700;
+    /* Color dorado para el hover */
+}
+
+.hero-container1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+
+.hero {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 50px;
+    text-align: center;
+    border-radius: 10px;
+    max-width: 800px;
+    width: 100%;
+}
+
+.hero-content {
+    color: #fff;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #ffd700;
+    color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #ffc100;
+}
+</style>

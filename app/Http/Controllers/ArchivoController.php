@@ -209,7 +209,11 @@ class ArchivoController extends Controller
     }
 
     public function ver(){
-       
-        return inertia('Seguimiento/reporte');
+       $archivo = DB::select("
+       SELECT id, nombre_archivo
+       FROM archivos
+       WHERE estado_archivo = 1
+       ");
+       return inertia('Lista',['archivos' => $archivo] );
     }
 }

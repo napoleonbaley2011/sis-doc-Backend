@@ -13,6 +13,7 @@ use App\Models\Etiqueta;
 use Inertia\Inertia;
 // No auth Routes
 Route::get('/', [DashboardController::class, 'index']);
+Route::get('/archivos/ver',[ArchivoController::class,'ver'])->name('archivos.ver');
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',])->group(function () {
     //Auth Routes
