@@ -1,6 +1,11 @@
 <script>
 export default {
-    name: 'DocumentosIndex'
+    name: 'DocumentosIndex',
+    methods: {
+        goBack() {
+            window.history.back();
+        }
+    }
 }
 </script>
 <script setup>
@@ -10,10 +15,9 @@ import AppLayout from '@/Layouts/AppLayout.vue';
     <AppLayout>
         <template #header>
             <h1>Categorias de Repositorios</h1>
+            <button @click="goBack" class="back-button">Volver atrás</button>
             <div class="body1">
-
                 <div class="container-card">
-
                     <div class="card">
                         <figure>
                             <img
@@ -59,9 +63,7 @@ import AppLayout from '@/Layouts/AppLayout.vue';
             </div>
         </template>
     </AppLayout>
-
 </template>
-
 <style>
 /*Cards*/
 .container-card {
@@ -145,4 +147,5 @@ import AppLayout from '@/Layouts/AppLayout.vue';
         margin: 15px;
     }
 }
+
 </style>

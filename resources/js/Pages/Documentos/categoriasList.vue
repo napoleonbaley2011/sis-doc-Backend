@@ -1,6 +1,11 @@
 <script>
 export default {
-    name: 'ListaTodo'
+    name: 'ListaTodo',
+    methods: {
+        goBack() {
+            window.history.back();
+        }
+    }
 }
 </script>
 <script setup>
@@ -26,6 +31,7 @@ const deleteEtiqueta = id => {
             <h1 class="font-semibold text-xl text-gray-800 leading-tight">Etiquetas</h1>
             <div class="attendance">
                 <h1>Lista de Etiquetas</h1>
+                <button @click="goBack" class="back-button">Volver atrás</button>
                 <div class="attendance-list">
                     <div>
                         <Link :href="route('etiquetas.create')" class="text-white bg-sky-600 hover:bg-sky-500 py-2 px-4 rounded mt-4 mb-4">

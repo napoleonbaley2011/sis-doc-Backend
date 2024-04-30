@@ -1,6 +1,11 @@
 <script>
 export default {
-    name: 'ListaRepo'
+    name: 'ListaRepo',
+    methods: {
+        goBack() {
+            window.history.back();
+        }
+    }
 }
 </script>
 <script setup>
@@ -43,6 +48,7 @@ window.addEventListener('DOMContentLoaded', function () {
     <AppLayout>
         <div class="attendance">
             <h1>Lista de Documentos</h1>
+            <button @click="goBack" class="back-button">Volver atrás</button>
             <div class="attendance-list">
                 <table class="table">
                     <thead>

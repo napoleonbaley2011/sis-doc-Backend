@@ -1,3 +1,12 @@
+<script>
+export default {
+    methods: {
+        goBack() {
+            window.history.back();
+        }
+    }
+}
+</script>
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
 import { Inertia } from '@inertiajs/inertia';
@@ -17,7 +26,8 @@ const deleteArchivo = id => {
 <template>
     <AppLayout>
         <template #header> 
-            <h1>Hola Seguimientos</h1>
+            <h1>Seguimientos a todos los archivos</h1>
+            <button @click="goBack" class="back-button">Volver atrás</button>
             <h1>{{ archivos.id }}</h1>
             <!--<h1>{{ archivos }}</h1>-->
             <div class="attendance-list">

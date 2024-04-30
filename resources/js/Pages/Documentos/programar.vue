@@ -7,6 +7,11 @@ export default {
     mounted() {
         console.log('ID recibida:', this.num);
         console.log('IDETIQUETA recibida:', this.etiqueta);
+    },
+    methods: {
+        goBack() {
+            window.history.back();
+        }
     }
 }
 </script>
@@ -87,6 +92,7 @@ const fechaAnterior = hoy.toISOString().split('T')[0];
                 </div>
                 <div class="form-group">
                     <button type="submit">Enviar</button>
+                    <button @click="goBack" class="back-button">Cancelar</button>
                 </div>
             </form>
         </div>
