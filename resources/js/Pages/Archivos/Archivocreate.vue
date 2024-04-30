@@ -1,3 +1,13 @@
+<script>
+export default {
+    name: 'ArchivoCreate',
+    methods: {
+        goBack() {
+            window.history.back();
+        }
+    }
+}
+</script>
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
 import { useForm } from "@inertiajs/vue3";
@@ -62,6 +72,7 @@ const submitForm = () => {
                 <div class="form-group">
                     <button type="submit">Enviar</button>
                 </div>
+                <button @click="goBack" class="back-button">Volver atrás</button>
             </form>
         </div>
     </AppLayout>

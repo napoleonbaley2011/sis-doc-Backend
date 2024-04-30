@@ -17,13 +17,15 @@ class ProgramarController extends Controller
         SELECT xd.id, xc.nombre_categoria, xd.fecha_creacion, xd.fecha_modificacion, xd.estado_doc, xt.tipo_documento, tmp.cantidad FROM documentos xd, categorias xc, tipo_de__documentos xt, (SELECT d.id AS id_documento, IFNULL(COUNT(a.id), 0) AS cantidad FROM documentos d LEFT JOIN archivos a ON d.id = a.id_documento GROUP BY d.id)tmp WHERE xd.id_categoria = xc.id AND xd.id_tipo = xt.id AND tmp.id_documento = xd.id ORDER BY xd.id DESC;
         ");
 
-        foreach ($documentos as $documento) {
+        foreach ($documentos as $documento) {   
             if ($documento->fecha_modificacion < $fechaActual->toDateString()) {
                 $documento->estado_doc = 0;
             }
         }
-        $documentosEstado0 = collect($documentos)->where('estado_doc', 0);
+        $documentosEstado0 = collect($documentos)->where('estado_doc', 1);
         $hayDocumentosEstado0 = $documentosEstado0->isNotEmpty();
+
+        
         /**
          dump($hayDocumentosEstado0);
         //
@@ -36,6 +38,7 @@ class ProgramarController extends Controller
         return inertia('Programar/programar',[
             'documentos' => $documentos,
             'hayDocumentosEstado0' => $hayDocumentosEstado0,
+            'documentosestado' => $documentosEstado0
         ]);
     }
 

@@ -20,6 +20,10 @@ defineProps({
     hayDocumentosEstado0: {
         type: Boolean,
         required: true
+    },
+    documentosestado:{
+        type: Object,
+        required: true
     }
 })
 
@@ -46,7 +50,7 @@ window.addEventListener('DOMContentLoaded', function () {
 </script>
 <template>
     <AppLayout>
-        <div class="attendance">
+        <div class="attendance" v-if="$page.props.user.roles.includes('admin')">
             <h1>Lista de Documentos</h1>
             <button @click="goBack" class="back-button">Volver atrás</button>
             <div class="attendance-list">
@@ -64,6 +68,47 @@ window.addEventListener('DOMContentLoaded', function () {
                     </thead>
                     <tbody>
                         <tr v-for="documento in documentos" :key="documento.id">
+                            <td>{{ documento.id }}</td>
+                            <td>{{ documento.nombre_categoria }}</td>
+                            <td>{{ documento.fecha_creacion }}</td>
+                            <td>{{ documento.fecha_modificacion }}</td>
+                            <td>
+                                <div :class="['estado-repo', getEstadoClass(documento.estado_doc)]">
+                                    {{ documento.estado_doc ? 'Activo' : 'Inactivo' }}
+                                </div>
+                            </td>
+                            <td>
+                                <a :href="route('archivos.mandar', { rolenviar: 'admin', id: documento.id })"
+                                    class="btn-celeste" v-if="$page.props.user.roles.includes('admin')">Entrar a los
+                                    Archivos</a>
+                                <a :href="route('archivos.mandar', { rolenviar: 'transcriptor', id: documento.id })"
+                                    class="btn-celeste" v-else>Subir los archivos</a>
+                            </td>
+                            <td><span class="circulo">{{ documento.cantidad }}</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--Vista Editor-->
+        <div class="attendance" v-else>
+            <h1>Lista de Documentos</h1>
+            <button @click="goBack" class="back-button">Volver atrás</button>
+            <div class="attendance-list">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Categoria</th>
+                            <th>Fecha Programada</th>
+                            <th>Fecha Vencimiento</th>
+                            <th>Estado del Repositorio</th>
+                            <th>Accion</th>
+                            <th>Cantidad</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="documento in documentosestado" :key="documento.id">
                             <td>{{ documento.id }}</td>
                             <td>{{ documento.nombre_categoria }}</td>
                             <td>{{ documento.fecha_creacion }}</td>

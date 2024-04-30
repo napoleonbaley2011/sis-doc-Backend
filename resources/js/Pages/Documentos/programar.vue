@@ -51,7 +51,7 @@ const fechaAnterior = hoy.toISOString().split('T')[0];
 
 <template>
     <AppLayout>
-        <div class="form-container">
+        <div class="form-container" >
             <h2>Programacion de Repositorio</h2>
             <hr class="form-divider">
             <form @submit.prevent="submitForm" :form="form">
@@ -96,6 +96,8 @@ const fechaAnterior = hoy.toISOString().split('T')[0];
                 </div>
             </form>
         </div>
+
+        
     </AppLayout>
 </template>
 <style>

@@ -1,3 +1,13 @@
+<script>
+export default {
+    name: 'vistaEditor',
+    methods: {
+        goBack() {
+            window.history.back();
+        }
+    }
+}
+</script>
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
 import { Link } from "@inertiajs/vue3";
@@ -40,6 +50,7 @@ function openModal(archivo) {
                 <div class="titulo">
                     <h1>ARCHIVOS</h1>
                 </div>
+                <button @click="goBack" class="back-button">Volver atrás</button>
                 <h1>Lista de Archivos</h1>
                 <h1>{{ props.etiqueta[0].nombre }} --- {{ props.tipo[0].tipo_documento }}</h1>
                 <div class="attendance-list">
