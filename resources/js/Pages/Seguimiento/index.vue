@@ -1,35 +1,12 @@
-<script>
-export default {
-    methods: {
-        goBack() {
-            window.history.back();
-        }
-    }
-}
-</script>
-<script setup>
-import AppLayout from '@/Layouts/AppLayout.vue';
-import { Inertia } from '@inertiajs/inertia';
-
-defineProps({
-    archivos: {
-        type: Array,
-        required: true
-    }
-})
-const deleteArchivo = id => {
-    if (confirm('Estas Seguro ?')) {
-        Inertia.delete(route('archivos.eliminar', id));
-    }
-}
-</script>
 <template>
     <AppLayout>
-        <template #header> 
+        <template #header>
             <h1>Seguimientos a todos los archivos</h1>
             <button @click="goBack" class="back-button">Volver atrás</button>
-            <h1>{{ archivos.id }}</h1>
-            <!--<h1>{{ archivos }}</h1>-->
+            <h1>Buscador:</h1>
+            <div class="search-container">
+                <input type="text" v-model="searchQuery" placeholder="Buscar por nombre..." class="search-input">
+            </div>
             <div class="attendance-list">
                 <table class="table">
                     <thead>
@@ -41,11 +18,11 @@ const deleteArchivo = id => {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="archivo in archivos">
+                        <tr v-for="archivo in filteredArchivos" :key="archivo.id">
                             <td>{{ archivo.id }}</td>
                             <td>{{ archivo.nombre_archivo }}</td>
                             <td>{{ archivo.nombre }}</td>
-                            <td> 
+                            <td>
                                 <button @click="deleteArchivo(archivo.id)" class="btn-delete">Eliminar</button>
                             </td>
                         </tr>
@@ -54,9 +31,63 @@ const deleteArchivo = id => {
             </div>
         </template>
     </AppLayout>
-
 </template>
+
+<script setup>
+import AppLayout from '@/Layouts/AppLayout.vue';
+import { Inertia } from '@inertiajs/inertia';
+import { defineProps, ref, computed } from 'vue'; // Importa ref y computed
+
+// Define la prop archivos
+const props = defineProps({
+    archivos: {
+        type: Array,
+        required: true
+    }
+});
+
+// Variables reactivas
+const searchQuery = ref(''); // Variable para almacenar el texto de búsqueda
+
+// Método para eliminar archivo
+const deleteArchivo = id => {
+    if (confirm('¿Estás seguro?')) {
+        Inertia.delete(route('archivos.eliminar', id));
+    }
+}
+
+// Filtro de archivos según el texto de búsqueda
+const filteredArchivos = computed(() => {
+    const query = searchQuery.value.toLowerCase().trim();
+    if (!query) {
+        return props.archivos; // Si no hay texto de búsqueda, devuelve todos los archivos
+    } else {
+        return props.archivos.filter(archivo =>
+            archivo.nombre_archivo.toLowerCase().includes(query) ||
+            archivo.nombre.toLowerCase().includes(query)
+        );
+    }
+});
+
+// Método para volver atrás
+const goBack = () => {
+    window.history.back();
+}
+</script>
+
 <style>
+.search-container {
+    margin-bottom: 20px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none; /* Quita el borde al hacer focus */
+}
 .attendance {
     margin-top: 20px;
     text-transform: capitalize;
