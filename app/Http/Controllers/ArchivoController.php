@@ -212,8 +212,19 @@ class ArchivoController extends Controller
        $archivo = DB::select("
        SELECT id, nombre_archivo
        FROM archivos
-       WHERE estado_archivo = 1
+       WHERE estado_archivo = 2
        ");
        return inertia('Lista',['archivos' => $archivo] );
+    }
+
+    public function descargarArchivo1($filename)
+    {
+        $archivoPath = storage_path('app/archivos/' . $filename);
+
+        if (!Storage::exists('archivos/' . $filename)) {
+            abort(404);
+        }
+
+        return response()->download($archivoPath);
     }
 }

@@ -9,7 +9,7 @@ defineProps({
 });
 
 function descargarArchivo(archivo) {
-    window.open(`/archivos/${archivo.nombre_archivo}`, '_blank');
+    window.open(`/archivos1/${archivo.nombre_archivo}`, '_blank');
 }
 
 </script>
@@ -41,7 +41,7 @@ function descargarArchivo(archivo) {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="archivo in archivos" :key="archivo.id">
+                            <tr v-for="archivo in archivos" >
                                 <td>{{ archivo.id }}</td>
                                 <td>{{ archivo.nombre_archivo }}</td>
                                 <td>

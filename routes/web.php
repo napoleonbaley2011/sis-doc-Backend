@@ -14,6 +14,7 @@ use Inertia\Inertia;
 // No auth Routes
 Route::get('/', [DashboardController::class, 'index']);
 Route::get('/archivos/ver',[ArchivoController::class,'ver'])->name('archivos.ver');
+Route::get('/archivos1/{filename}', [ArchivoController::class, 'descargarArchivo1'])->name('archivos.descargar1');
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',])->group(function () {
     //Auth Routes

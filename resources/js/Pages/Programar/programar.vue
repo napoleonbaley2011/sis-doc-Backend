@@ -36,15 +36,6 @@ const entrarArchivos = id => {
     console.log(`Entrar a los archivos del documento con ID ${id}`);
 };
 
-window.addEventListener('DOMContentLoaded', function () {
-    if (window.hayDocumentosEstado0) {
-        alert('Atención: Hay documentos con estado 0.');
-    }
-});
-
-window.addEventListener('DOMContentLoaded', function () {
-    alert('Prueba de alerta');
-});
 
 
 </script>
